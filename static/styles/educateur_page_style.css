@@ -1,0 +1,105 @@
+.educateur-page-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 25px;
+    background-color: var(--main-turquoise);
+    padding: 50px 20px;
+}
+
+.educateur-page-header h1 {
+    color: white;
+}
+
+.educateur-review {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 5px;
+}
+
+.educateur-review svg {
+    width: 25px;
+    aspect-ratio: 1;
+    fill: var(--off-white);
+}
+
+.educateur-page-header img {
+    object-fit: cover;
+    border-radius: 50%;
+    max-height: 300px;
+    aspect-ratio: 1/1
+}
+
+.educateur-page-header a {
+    padding: 10px 20px;
+    background-color: white;
+    color: #0B5351;
+    border-radius: 300px;
+}
+
+.educateur-page-header a:hover {
+    background-color: #ddd;
+}
+
+.educateur-page-body {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-block: 60px;
+}
+
+.educateur-page-body .description-section,
+.educateur-page-body .details-section,
+.educateur-page-body .map-section {
+    padding-inline: 30px;
+    margin: 0 auto 40px auto;
+}
+
+.educateur-page-body .description-section .label {
+    color: #6a6a6a;
+    margin-bottom: 20px;
+}
+
+.educateur-page-body .description-section .description {
+    font-size: 1.1rem;
+}
+
+/* --- Details section --- */
+.details-section h2 {
+    color: var(--main-turquoise);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.educateur-page-body .details-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.details-section .detail {
+    display: flex;
+    align-items: center;
+}
+
+.details-section svg {
+    width: 40px;
+    aspect-ratio: 1;
+    margin-right: 10px;
+    fill: var(--main-turquoise);
+}
+
+.details-section .label {
+    color: var(--light-grey);
+    margin-right: 5px;
+}
+
+#map {
+    max-width: 1000px;
+    padding: 30px;
+    height: 300px;
+    z-index: 1;
+    border-radius: 15px;
+}
+

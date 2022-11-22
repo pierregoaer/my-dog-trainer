@@ -1,0 +1,81 @@
+.header-container {
+    background-color: white;
+    padding-block: 20px;
+}
+
+.header {
+    max-width: 1400px;
+    margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.logo {
+    height: 100px;
+}
+
+.main-navigation {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 40px;
+	transition: transform 0.7s ease;
+}
+
+.main-navigation a,
+.main-navigation p {
+	font-size: 1.1rem;
+	color: var(--main-turquoise);
+}
+
+.regions-dropdown{
+    position: relative;
+}
+
+.regions-dropdown-list {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
+    overflow: hidden;
+    opacity: 0;
+    transition: all .15s ease-in-out;
+}
+
+.regions-dropdown:hover .regions-dropdown-list {
+    top: 100%;
+    opacity: 1;
+}
+
+
+.regions-dropdown-list a {
+    width: 150px;
+    background-color: var(--light-turquoise);
+    color: var(--dark-turquoise);
+    padding: 5px 15px;
+    border-top: 1px solid white;
+}
+
+.regions-dropdown-list a:hover {
+    background-color: var(--light-turquoise-hover);
+}
+
+
+.nav-CTA {
+    padding: 15px;
+    background-color: var(--main-turquoise);
+    border-radius: 300px;
+}
+.nav-CTA span {
+    color: white;
+}
+
+.nav-CTA:hover {
+    background-color: var(--main-turquoise-hover);
+}
+
+.mobile-nav-icon-container {
+    display: none;
+}
