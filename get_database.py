@@ -1,14 +1,29 @@
 import gspread
+# When in development use this import ⬇️, when in production use environment variables declared below
+# from google_service_account_credentials import GOOGLE_SERVICE_ACCOUNT_CREDENTIALS;
+import os
 from geopy.geocoders import Nominatim
 
-service_acc = gspread.service_account(filename="google_service_account/educateurs-canins-6beb0ac20bec.json")
+# print(os.environ["PRIVATE_KEY_ID"])
+
+# Env variables have been declared in Heroku, comment out dict when in development
+GOOGLE_SERVICE_ACCOUNT_CREDENTIALS = {
+    "type": "service_account",
+    "project_id": "educateurs-canins",
+    "private_key_id": os.environ["PRIVATE_KEY_ID"],
+    "private_key": f'-----BEGIN PRIVATE KEY-----\n{os.environ["PRIVATE_KEY_1"]}\n{os.environ["PRIVATE_KEY_2"]}\n{os.environ["PRIVATE_KEY_3"]}\n{os.environ["PRIVATE_KEY_4"]}\nvzWmgQOMtvXR3/XtkXTnDqqgibQ2iW9mm3e6j5WAmTsGRYKEndv11q+eYah58gMC\nHDap+Htc2W5Twdp+lpnKUHqDxNnrAbyZnIZFPYX+IvD996eVgPxtL5EP0/g+sICF\n+csL+8ERAgMBAAECggEABusx292+M/5X0Eaa9tdlV4xlDHh4+1IUobiWTA07AKeV\n8uvMbC9SoRYcW5/ERDdXlrtLB1v/xdVrnmjy412F2kQ3/YCUM65zZU+8RPQ0M6vU\naY3pB5E+MtIqweOa9fzZ23tCycdKt3U/aXd/WqVbEGNq3r1g3ZhSfb4yDWRRtxj8\nagjeDj2iX1LBFkq3SvpelF9sIF9di7dPKMZMvgSd9RG6V1OluKet+tjmAgRQPCWd\nDD2JoG2R0H7yrTkgPcOYDqDpNKKU33OLvr2OKiImr2VxfntzKRTVBJ5MZ8eTEq9/\nSelKvZPMUYg61/n16KSBr4nuWFELZKQCXFmc5f5FoQKBgQD3GyQURVNZA2p3YGS0\n4csON3F1BREaHcQ24VtPvIw8kSNpIROIhv5O3skK51xfzcLZCnfLIu9kdm1tb4Do\nI0Uq/BijzqWU0KLT2H1JQK03qXo5zmmB4h80tvR54m2WQHbl0pvgORtkgvb4qHt+\nvf2Rrz9lLSeINsOrl2KyhX4NSQKBgQC8njGN1s0/FjymJEAgpEvxOT6RpKEeCoXx\nNTLqqTZpX2scVbotVMA1WGjlX2hoj3DJ3385DyarC6J1BGoZff2V+FukJHS9QzH4\ntJ09uQbtZzDbnVo7rCSJDrOGtmo+jSMTEs1kU4R18OnWSf4ZQirUQHhhhEWS9fJh\n31QaKLp9iQKBgBrCVKjhTQJRrWDaDm3MGcojVOUANHbojEwJIXNEDsesS/Jhg5UA\nUV/HHmxQ258AUD5itNBJqzTs4jK8pW/+Ccp63Ew435N6+HcKdZ7OIzPo5XSHFsPa\n8dgqi9T7ITTpLDb9FKY2aPH8gLQywpTaDDCPksTpG+PTUmMtlKGSdTEJAoGAG2nO\nf/PpLrMXq3n3TAc09mFAg8BunkQfRXha5xoiy1vP4HVhMrdvnBE2ZafhL9kxJlXy\nUqOuFgwB14oFtaDHG2XWQ9v8j4lVmPT/KXpb1GM8CZ8r/yI8ySK22uxmMqMmpt4D\ntgIhbVbPVZK5eIhSWzjnhhzIU9ylFq5ztb2XpSkCgYEAvn4u0ec0h4l9M12VfPYw\n8BZfoDWbxombuMSZNsjf9fwJBvK3JUjg8h7z9qg5eMjJJEDR+9o3g0LbyhdMMDS5\ncY0OHRcJRN69c+YdUIq3YBgiGlB6ShhDq/h5yZZQL/eSjXT9U6iREQzflGwBPABl\na7H/UE0m+iQRSrJREKZGAIw=\n-----END PRIVATE KEY-----\n',
+    "client_email": "mon-educateur-canin@educateurs-canins.iam.gserviceaccount.com",
+    "client_id": {os.environ["CLIENT_ID"]},
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/mon-educateur-canin%40educateurs-canins.iam.gserviceaccount.com"
+}
+
+# service_acc = gspread.service_account(filename="google_service_account/educateurs-canins-6beb0ac20bec.json")
+service_acc = gspread.service_account_from_dict(GOOGLE_SERVICE_ACCOUNT_CREDENTIALS)
 # geolocator = Nominatim(user_agent="educateurs")
 
-# DB to use for testing (might need to change the name of columns when creating objects)
-# sheet = service_acc.open("bdd_educateurs_canins")
-# worksheet = sheet.worksheet("bdd")
-
-# Actual DB
 sheet = service_acc.open("BDD_educateurs")
 worksheet = sheet.worksheet("BDD")
 
@@ -49,11 +64,8 @@ database = {}
 
 for el in data:
     # location = geolocator.geocode(el["address"])
-    # print(type(round(el["Note"])))
     # googleReviews = '⭐️' * int(round(el["Note"]))
     rounded_google_review = round(el["Note"] * 2) / 2;
-
-    # google_reviews = star_full * round(el["Note"]) + star_empty * (5 - round(el["Note"]))
     database[el["id"]] = {
         "id": el["id"],
         "name": el["Nom éducateur"],
@@ -63,9 +75,7 @@ for el in data:
         # "lat_long": [location.latitude, location.longitude],
         "lat_long": [el["Latitude"], el["Longitude"]],
         "phone": el["Téléphone"],
-        # "email": el["email"],
         "website": el["Site internet"],
-        # "googleReviews": str(el["Note"]).replace(".", ","),
         "googleReviews": return_google_review(rounded_google_review),
         "image": el["Image éducateur"],
         "description": el["Description"]
