@@ -91,7 +91,10 @@ class App {
 			navigator.geolocation.getCurrentPosition(function(position){
                 // console.log(position)
                 const { latitude, longitude } = position.coords;
-                this.map = L.map('map').setView([latitude, longitude], 13);
+                this.map.setView([latitude, longitude], 13, {
+					animate: true,
+					duration: 0.5,
+				});
             }, function () {
 				alert('Veuillez autoriser la localisation pour utiliser cette fonction');
 			});
