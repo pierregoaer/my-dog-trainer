@@ -80,22 +80,15 @@ class App {
         })
     }
 
-    // moveMapToLocation(position){
-    //     const { userLatitude, userLongitude } = position.coords;
-    //     this.map = L.map('map').setView([userLatitude, userLongitude], 13);
-    // }
+    moveMapToLocation(position){
+        const { latitude, longitude } = position.coords;
+        this.map.setView([latitude, longitude], 13, {animate: true, duration: 0.5});
+    }
 
     getPosition(){
         console.log("Button triggered")
         if (navigator.geolocation){
-			navigator.geolocation.getCurrentPosition(function(position){
-                // console.log(position)
-                const { latitude, longitude } = position.coords;
-                this.map.setView([latitude, longitude], 13, {
-					animate: true,
-					duration: 0.5,
-				});
-            }, function () {
+			navigator.geolocation.getCurrentPosition(this.moveMapToLocation.bind(this), function () {
 				alert('Veuillez autoriser la localisation pour utiliser cette fonction');
 			});
         }
