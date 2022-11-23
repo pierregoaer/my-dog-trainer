@@ -68,7 +68,8 @@
     font-size: 1rem;
 }
 
-.display-map-button {
+.display-map-button,
+.search-around-me-button {
     padding: 10px 20px;
     border: 1px solid white;
     color: white;
@@ -76,7 +77,8 @@
     font-size: 1rem;
 }
 
-.display-map-button:hover {
+.display-map-button:hover,
+.search-around-me-button:hover {
     cursor: pointer;
 }
 

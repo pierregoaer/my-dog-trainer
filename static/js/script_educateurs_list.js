@@ -1,11 +1,8 @@
-//L.marker([51.5, -0.09]).addTo(map)
-//    .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-//    .openPopup();
-
 //console.log(database)
 
 const displayMapButton = document.querySelector('.display-map-button')
 const mapElement = document.querySelector('#map')
+const searchAroundMeButton = document.querySelector('.search-around-me-button')
 
 // const seeAllEducateursButton = document.querySelector(".see-all-educateurs")
 // const hiddenEducateurs = document.querySelectorAll('.educateur.hidden')
@@ -25,11 +22,12 @@ class App {
     ]
 
     constructor() {
-        console.log(this.database);
+        // console.log(this.database);
         this.loadMap();
         this.initiateMarker();
         this.loadMarkers();
-        displayMapButton.addEventListener("click", this.displayMap);
+        searchAroundMeButton.addEventListener("click", this.getPosition)
+        // displayMapButton.addEventListener("click", this.displayMap);
         // seeAllEducateursButton.addEventListener("click", this.displayAllEducateurs)
     }
 
@@ -82,10 +80,29 @@ class App {
         })
     }
 
-    displayMap() {
-        mapElement.classList.toggle('map-hidden');
-        displayMapButton.innerText === 'Afficher la carte' ? (displayMapButton.innerText = 'Cacher la carte') : (displayMapButton.innerText = 'Afficher la carte');
+    // moveMapToLocation(position){
+    //     const { userLatitude, userLongitude } = position.coords;
+    //     this.map = L.map('map').setView([userLatitude, userLongitude], 13);
+    // }
+
+    getPosition(){
+        console.log("Button triggered")
+        if (navigator.geolocation){
+			navigator.geolocation.getCurrentPosition(function(position){
+                // console.log(position)
+                const { latitude, longitude } = position.coords;
+                this.map = L.map('map').setView([latitude, longitude], 13);
+            }, function () {
+				alert('Veuillez autoriser la localisation pour utiliser cette fonction');
+			});
+        }
     }
+
+
+    // displayMap() {
+    //     mapElement.classList.toggle('map-hidden');
+    //     displayMapButton.innerText === 'Afficher la carte' ? (displayMapButton.innerText = 'Cacher la carte') : (displayMapButton.innerText = 'Afficher la carte');
+    // }
 
     // displayAllEducateurs() {
     //     hiddenEducateurs.forEach(hiddenEducateur => {

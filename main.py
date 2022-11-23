@@ -62,4 +62,4 @@ if __name__ == "__main__":
     app.run()
 
 
-# TODO: Before committing -> chang google credentials, change app.run server
+# TODO: Before committing -> change google credentials, change app.run server
