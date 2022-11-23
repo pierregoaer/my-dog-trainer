@@ -80,20 +80,18 @@ class App {
         })
     }
 
+    getPosition(){
+        console.log("Button triggered")
+        if (navigator.geolocation)
+			navigator.geolocation.getCurrentPosition(this.moveMapToLocation.bind(this), function () {
+				alert('Veuillez autoriser la localisation pour utiliser cette fonction.');
+			});
+    }
+
     moveMapToLocation(position){
         const { latitude, longitude } = position.coords;
         this.map.setView([latitude, longitude], 13, {animate: true, duration: 0.5});
     }
-
-    getPosition(){
-        console.log("Button triggered")
-        if (navigator.geolocation){
-			navigator.geolocation.getCurrentPosition(this.moveMapToLocation.bind(this), function () {
-				alert('Veuillez autoriser la localisation pour utiliser cette fonction.');
-			});
-        }
-    }
-
 
     // displayMap() {
     //     mapElement.classList.toggle('map-hidden');
