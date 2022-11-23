@@ -60,3 +60,6 @@ def educateur_page(educateur_id):
 if __name__ == "__main__":
     # app.run('0.0.0.0')
     app.run()
+
+
+# TODO: Before committing -> chang google credentials, change app.run server

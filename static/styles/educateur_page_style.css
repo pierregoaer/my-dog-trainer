@@ -1,15 +1,22 @@
+.educateur-page-header-container {
+    background-color: var(--main-turquoise);
+
+}
+
 .educateur-page-header {
+    max-width: 800px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     row-gap: 25px;
-    background-color: var(--main-turquoise);
     padding: 50px 20px;
 }
 
 .educateur-page-header h1 {
     color: white;
+    text-align: center;
 }
 
 .educateur-review {
@@ -52,7 +59,7 @@
 .educateur-page-body .description-section,
 .educateur-page-body .details-section,
 .educateur-page-body .map-section {
-    padding-inline: 30px;
+    padding-inline: var(--section-padding);
     margin: 0 auto 40px auto;
 }
 
@@ -74,13 +81,23 @@
 
 .educateur-page-body .details-container {
     display: flex;
-    flex-direction: column;
-    row-gap: 20px;
+    flex-direction: row;
+    column-gap: 25px;
+    row-gap: 25px;
+    padding: 25px;
+    border-radius: 12px;
+    background-color: var(--dark-turquoise);
 }
 
 .details-section .detail {
     display: flex;
     align-items: center;
+    row-gap: 10px;
+    flex-direction: column;
+    flex: 1 1 0px;
+    padding: 15px;
+    border-radius: 12px;
+    background-color: var(--off-white);
 }
 
 .details-section svg {
@@ -95,6 +112,25 @@
     margin-right: 5px;
 }
 
+.details-section .detail-text {
+    text-align: center;
+}
+
+.details-section .hours-container {
+    align-items: center;
+}
+
+
+.details-section .hours-detail {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    align-items: center;
+}
+
+
+
+/*--- Map section ---*/
 #map {
     max-width: 1000px;
     padding: 30px;
@@ -103,3 +139,9 @@
     border-radius: 15px;
 }
 
+/*--- Responsiveness ---*/
+@media only screen and (max-width: 1000px){
+    .educateur-page-body .details-container {
+      flex-direction: column;
+    }
+}

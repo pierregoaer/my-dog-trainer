@@ -1,10 +1,10 @@
 /* Hero section */
 .hero-section-container {
     background-color: var(--main-turquoise);
-    padding: 150px 30px;
 }
 
 .hero-section {
+    padding: 150px var(--section-padding);
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
@@ -21,6 +21,7 @@
     font-size: 2.5rem;
     line-height: 1.2;
     margin-bottom: 40px;
+    text-align: left !important;
 }
 
 .hero-section p {
@@ -46,7 +47,7 @@
     width: 400px;
 }
 
-/* Main section section */
+/* --- Main section --- */
 .main-section {
     max-width: var(--sections-max-width);
     margin: 170px auto;
@@ -54,6 +55,7 @@
 
 .main-section .sub-section {
     margin-bottom: 150px;
+    padding: var(--section-padding);
 }
 
 .main-section:last-child {
@@ -64,7 +66,13 @@
     display: flex;
     align-items: center;
     column-gap: 40px;
+    row-gap: 40px;
 }
+
+.sub-section:nth-child(even) .sub-section-details{
+    flex-direction: row-reverse;
+}
+
 
 .main-section h2 {
     margin-bottom: 20px;
@@ -102,6 +110,7 @@
     align-items: center;
     justify-content: flex-start;
     column-gap: 10px;
+    row-gap: 15px;
 }
 
 .main-section .sub-section-details a {
@@ -111,6 +120,7 @@
     padding: var(--btn-padding);
     border-radius: 300px;
 }
+
 
 /* FAQ section */
 .faq-container {
@@ -137,7 +147,7 @@
 }
 
 .faq li.active .answer {
-    max-height: 500px !important;
+    max-height: 1000px !important;
     padding-bottom: 25px;
     transition: max-height 0.5s ease, padding-bottom 0.5s ease;
 }
@@ -195,4 +205,35 @@
     cursor: pointer;
     padding: 20px 0;
     transition: color 0.5s ease;
+}
+
+/*--- Responsiveness ---*/
+@media only screen and (max-width: 900px){
+    .hero-section-image {
+        display: none;
+    }
+    .hero-section {
+        padding: 80px var(--section-padding)
+    }
+}
+
+@media only screen and (max-width: 1100px){
+    .main-section .sub-section {
+        margin-bottom: 50px;
+    }
+
+    .main-section .sub-section-details,
+    .sub-section:nth-child(even) .sub-section-details,
+    .main-section .educateur-region-buttons {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .main-section .sub-section-details img {
+        max-width: 95%;
+    }
+
+    .faq {
+      padding: 70px 20px 70px 60px;
+    }
 }

@@ -13,18 +13,17 @@
      crossorigin=""></script>
 
 </head>
-    <body>
-
+<body>
     {% include "header.html"%}
-
-    <div class="region-search-container">
-        <div class="region-search">
-            <h1>Découvrir les éducateurs canins à {{ region }}</h1>
-            <div class="display-map-button">Cacher la carte</div>
+    <div class="site-wrapper">
+        <div class="region-search-container">
+            <div class="region-search">
+                <h1>Découvrir les éducateurs canins à {{ region }}</h1>
+                <div class="display-map-button">Cacher la carte</div>
+            </div>
         </div>
-    </div>
-    <div id="map"></div>
-    <div class="educateurs-container">
+        <div id="map"></div>
+        <div class="educateurs-container">
         <div class="educateurs-grid" >
             {% for id, educateur in first_6_results.items() %}
                 <div class="educateur" data-id="{{ id }}">
@@ -42,34 +41,36 @@
                     </div>
                 </div>
             {% endfor %}
-<!--            {% for id, educateur in remaining_results.items() %}-->
-<!--                <div class="educateur hidden" data-id="{{ id }}">-->
-<!--                    <div class="educateur-bio">-->
-<!--                        <img src="{{ educateur['image'] }}" alt="">-->
-<!--                        <p class="educateur-name">{{ educateur['name'] }}</p>-->
-<!--                    </div>-->
-<!--                    <div class="educateur-details">-->
-<!--                        <p class="educateur-address">📍{{ educateur['address'] }}</p>-->
-<!--                        <p class="educateur-review">{{ educateur['googleReviews']|safe }}</p>-->
-<!--                        <div class="educateur-buttons">-->
-<!--                            <a class="educateur-button educateur-page" href="{{url_for('educateur_page', educateur_id=id) }}">En savoir plus</a>-->
-<!--                            <a class="educateur-button educateur-website" href="{{ educateur['website'] }}" target="_blank">Voir le site</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            {% endfor %}-->
+    <!--            {% for id, educateur in remaining_results.items() %}-->
+    <!--                <div class="educateur hidden" data-id="{{ id }}">-->
+    <!--                    <div class="educateur-bio">-->
+    <!--                        <img src="{{ educateur['image'] }}" alt="">-->
+    <!--                        <p class="educateur-name">{{ educateur['name'] }}</p>-->
+    <!--                    </div>-->
+    <!--                    <div class="educateur-details">-->
+    <!--                        <p class="educateur-address">📍{{ educateur['address'] }}</p>-->
+    <!--                        <p class="educateur-review">{{ educateur['googleReviews']|safe }}</p>-->
+    <!--                        <div class="educateur-buttons">-->
+    <!--                            <a class="educateur-button educateur-page" href="{{url_for('educateur_page', educateur_id=id) }}">En savoir plus</a>-->
+    <!--                            <a class="educateur-button educateur-website" href="{{ educateur['website'] }}" target="_blank">Voir le site</a>-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            {% endfor %}-->
         </div>
         {% if remaining_results %}
             <a class="see-all-educateurs" href="/educateurs">Voir tous les éducateurs à {{ region }}</a>
         {% endif %}
     </div>
     {% include "footer.html"%}
-    </body>
+    </div>
+</body>
 
 <script type="text/javascript">
     const database = {{ all_results|tojson }}
 </script>
 <script src="{{url_for('static', filename='js/script_educateurs_list.js')}}"></script>
+<script src="{{url_for('static', filename='js/header.js')}}"></script>
 </html>
 
 

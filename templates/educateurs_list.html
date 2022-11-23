@@ -13,52 +13,55 @@
      crossorigin=""></script>
 
 </head>
-    <body>
-
+<body>
     {% include "header.html"%}
-
-    <div class="department-search-container">
-        <div class="department-search">
-            <h1>Trouver un éducateur proche de chez vous</h1>
-            <form action="/educateurs" method="post" class="form">
-                <input type="text" name="department" id="department" placeholder="Rechercher par département" size="20" required>
-                <input type="submit" value="Rechercher"/>
-            </form>
-            {% if is_filtered %}
-                <a href="{{ url_for('educateurs_list') }}" class="see-all-departments-button">
-                    <p>Voir tous les éducateurs</p>
-                </a>
-            {% endif %}
-            <div class="display-map-button">Cacher la carte</div>
+        <div class="site-wrapper">
+        <div class="department-search-container">
+            <div class="department-search">
+                <h1>Trouver un éducateur proche de chez vous</h1>
+                <form action="/educateurs" method="post" class="form">
+                    <input type="text" name="department" id="department" placeholder="Rechercher par département" size="20" required>
+                    <input type="submit" value="Rechercher"/>
+                </form>
+                {% if is_filtered %}
+                    <a href="{{ url_for('educateurs_list') }}" class="see-all-departments-button">
+                        <p>Voir tous les éducateurs</p>
+                    </a>
+                {% endif %}
+                <div class="display-map-button">Cacher la carte</div>
+            </div>
         </div>
-    </div>
-    <div id="map"></div>
-    <div class="educateurs-container">
-        <div class="educateurs-grid" >
-            {% for id, educateur in database.items() %}
-                <div class="educateur" data-id="{{ id }}">
-                    <div class="educateur-bio">
-                        <img src="{{ educateur['image'] }}" alt="">
-                        <p class="educateur-name">{{ educateur['name'] }}</p>
-                    </div>
-                    <div class="educateur-details">
-                        <p class="educateur-address">📍{{ educateur['address'] }}</p>
-                        <div class="educateur-review">{{ educateur['googleReviews']|safe}}</div>
-                        <div class="educateur-buttons">
-                            <a class="educateur-button educateur-page" href="{{url_for('educateur_page', educateur_id=id) }}">En savoir plus</a>
-                            <a class="educateur-button educateur-website" href="{{ educateur['website'] }}" target="_blank">Voir le site</a>
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+        <div class="educateurs-container">
+            <div class="educateurs-grid" >
+                {% for id, educateur in database.items() %}
+                    <div class="educateur" data-id="{{ id }}">
+                        <div class="educateur-bio">
+                            <img src="{{ educateur['image'] }}" alt="">
+                            <p class="educateur-name">{{ educateur['name'] }}</p>
+                        </div>
+                        <div class="educateur-details">
+                            <p class="educateur-address">📍{{ educateur['address'] }}</p>
+                            <div class="educateur-review">{{ educateur['googleReviews']|safe}}</div>
+                            <div class="educateur-buttons">
+                                <a class="educateur-button educateur-page" href="{{url_for('educateur_page', educateur_id=id) }}">En savoir plus</a>
+                                <a class="educateur-button educateur-website" href="{{ educateur['website'] }}" target="_blank">Voir le site</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
+        {% include "footer.html"%}
     </div>
-    {% include "footer.html"%}
-    </body>
+</body>
 
 <script type="text/javascript">
     const database = {{database | tojson}}
 </script>
 <script src="{{url_for('static', filename='js/script_educateurs_list.js')}}"></script>
+<script src="{{url_for('static', filename='js/header.js')}}"></script>
 </html>
 

@@ -4,7 +4,6 @@ import gspread
 import os
 from geopy.geocoders import Nominatim
 
-# print(os.environ["PRIVATE_KEY_ID"])
 
 # Env variables have been declared in Heroku, comment out dict when in development
 GOOGLE_SERVICE_ACCOUNT_CREDENTIALS = {
@@ -20,7 +19,6 @@ GOOGLE_SERVICE_ACCOUNT_CREDENTIALS = {
     "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/mon-educateur-canin%40educateurs-canins.iam.gserviceaccount.com"
 }
 
-# service_acc = gspread.service_account(filename="google_service_account/educateurs-canins-6beb0ac20bec.json")
 service_acc = gspread.service_account_from_dict(GOOGLE_SERVICE_ACCOUNT_CREDENTIALS)
 # geolocator = Nominatim(user_agent="educateurs")
 
@@ -64,7 +62,6 @@ database = {}
 
 for el in data:
     # location = geolocator.geocode(el["address"])
-    # googleReviews = '⭐️' * int(round(el["Note"]))
     rounded_google_review = round(el["Note"] * 2) / 2;
     database[el["id"]] = {
         "id": el["id"],
@@ -75,8 +72,16 @@ for el in data:
         # "lat_long": [location.latitude, location.longitude],
         "lat_long": [el["Latitude"], el["Longitude"]],
         "phone": el["Téléphone"],
-        "website": el["Site internet"],
+        "website": el["Site internet"] if el["Site internet"][:4] == "http" else f'https://{el["Site internet"]}',
         "googleReviews": return_google_review(rounded_google_review),
+        "hours": {
+            "monday": el["lundi"],
+            "tuesday": el["mardi"],
+            "wednesday": el["mercredi"],
+            "thursday": el["jeudi"],
+            "friday": el["vendredi"],
+            "saturday": el["samedi"],
+            "sunday": el["dimanche"]},
         "image": el["Image éducateur"],
         "description": el["Description"]
     }
