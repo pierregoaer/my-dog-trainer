@@ -89,7 +89,7 @@ class App {
         console.log("Button triggered")
         if (navigator.geolocation){
 			navigator.geolocation.getCurrentPosition(this.moveMapToLocation.bind(this), function () {
-				alert('Veuillez autoriser la localisation pour utiliser cette fonction');
+				alert('Veuillez autoriser la localisation pour utiliser cette fonction.');
 			});
         }
     }
