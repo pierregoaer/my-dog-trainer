@@ -1,3 +1,26 @@
 <div class="footer-wrapper">
-
+    <div class="columns-wrapper">
+        <div class="column column-1">
+            <a href="{{ url_for('home') }}">
+                <img class="footer-logo" src="{{ url_for('static',filename='assets/logo.png') }}" alt=""/>
+            </a>
+            <p>
+                Le meilleur moyen de trouver votre éducateur canin.
+            </p>
+        </div>
+        <div class="column column-2">
+            <p class="label">Les éducateurs par région</p>
+            <a href="">Paris</a>
+            <a href="">Lyon</a>
+        </div>
+        <div class="column column-3">
+            <p class="label">Navigation</p>
+            <a href="">Voir tous les éducateurs</a>
+            <a href="">Blog</a>
+        </div>
+    </div>
+    <div class="copyrights">
+        <a href="">Mentions légales</a>
+        <span>| © 2022 Mon Educateur Canin</span>
+    </div>
 </div>

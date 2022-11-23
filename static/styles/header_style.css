@@ -13,7 +13,7 @@
 }
 
 .logo {
-    height: 100px;
+    height: 60px;
 }
 
 .main-navigation {
@@ -136,6 +136,9 @@
 }
 
 @media (max-width: 800px) {
+	.logo{
+		height: 40px;
+	}
 	.main-navigation {
 		position: fixed;
 		top: 0;

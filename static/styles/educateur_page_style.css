@@ -145,3 +145,9 @@
       flex-direction: column;
     }
 }
+
+@media only screen and (max-width: 500px){
+    .educateur-page-header img {
+      max-height: 150px;
+    }
+}
