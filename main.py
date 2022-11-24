@@ -13,7 +13,21 @@ def home():
 def educateurs_list():
     if request.method == "GET":
         is_filtered = False
-        return render_template('educateurs_list.html', database=educateurs_database, is_filtered=is_filtered)
+        number_of_results = 18
+        counter = 0
+        first_results = {}
+        remaining_results = {}
+        for id, educateur in educateurs_database.items():
+            if counter < number_of_results:
+                first_results[id] = educateur
+                counter += 1
+            else:
+                remaining_results[id] = educateur
+        return render_template('educateurs_list.html',
+                               database=educateurs_database,
+                               first_results=first_results,
+                               remaining_results=remaining_results,
+                               is_filtered=is_filtered)
     if request.method == "POST":
         department = request.form["department"]
         return redirect(url_for('department_search', department=department))

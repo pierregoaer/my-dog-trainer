@@ -100,4 +100,4 @@ for el in blogs_data:
         "article": el["article"],
     }
 
-print(blogs_database)
+# print(blogs_database)

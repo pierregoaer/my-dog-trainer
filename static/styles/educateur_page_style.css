@@ -35,8 +35,8 @@
 .educateur-page-header img {
     object-fit: cover;
     border-radius: 50%;
-    max-height: 300px;
-    aspect-ratio: 1/1
+    height: 300px;
+    width: 300px;
 }
 
 .educateur-page-header a {
@@ -148,6 +148,7 @@
 
 @media only screen and (max-width: 500px){
     .educateur-page-header img {
-      max-height: 150px;
+      height: 150px;
+      width: 150px;
     }
 }

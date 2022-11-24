@@ -1,11 +1,12 @@
 //console.log(database)
+'use strict';
 
 const displayMapButton = document.querySelector('.display-map-button')
 const mapElement = document.querySelector('#map')
 const searchAroundMeButton = document.querySelector('.search-around-me-button')
 
-// const seeAllEducateursButton = document.querySelector(".see-all-educateurs")
-// const hiddenEducateurs = document.querySelectorAll('.educateur.hidden')
+const seeAllEducateursButton = document.querySelector(".see-all-educateurs")
+const hiddenEducateurs = document.querySelectorAll('.educateur.hidden')
 
 class App {
     map;
@@ -28,7 +29,7 @@ class App {
         this.loadMarkers();
         searchAroundMeButton.addEventListener("click", this.getPosition)
         // displayMapButton.addEventListener("click", this.displayMap);
-        // seeAllEducateursButton.addEventListener("click", this.displayAllEducateurs)
+        seeAllEducateursButton.addEventListener("click", this.displayAllEducateurs)
     }
 
     loadMap() {
@@ -80,15 +81,22 @@ class App {
         })
     }
 
-    getPosition(){
-        console.log("Button triggered")
+    getPosition() {
+        const options = {
+          enableHighAccuracy: true,
+          timeout: 5000,
+          maximumAge: 0
+        };
         if (navigator.geolocation)
-			navigator.geolocation.getCurrentPosition(this.moveMapToLocation.bind(this), function () {
+			navigator.geolocation.getCurrentPosition(function(position){
+                console.log(position)
+            }, function () {
 				alert('Veuillez autoriser la localisation pour utiliser cette fonction.');
-			});
+			}, options);
     }
 
-    moveMapToLocation(position){
+    moveMapToLocation(position) {
+        console.log(this);
         const { latitude, longitude } = position.coords;
         this.map.setView([latitude, longitude], 13, {animate: true, duration: 0.5});
     }
@@ -98,11 +106,12 @@ class App {
     //     displayMapButton.innerText === 'Afficher la carte' ? (displayMapButton.innerText = 'Cacher la carte') : (displayMapButton.innerText = 'Afficher la carte');
     // }
 
-    // displayAllEducateurs() {
-    //     hiddenEducateurs.forEach(hiddenEducateur => {
-    //         hiddenEducateur.classList.toggle('hidden');
-    //     })
-    // }
+    displayAllEducateurs() {
+        hiddenEducateurs.forEach(hiddenEducateur => {
+            hiddenEducateur.classList.toggle('hidden');
+        })
+        seeAllEducateursButton.innerText === 'Voir tous les éducateurs' ? (seeAllEducateursButton.innerText = 'Cacher les éducateurs') : (seeAllEducateursButton.innerText = 'Voir tous les éducateurs');
+    }
 }
 
 const app = new App();

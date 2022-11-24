@@ -255,7 +255,8 @@
 }
 
 .see-all-educateurs {
-    margin: 20px auto;
+    display: block;
+    margin: 20px auto 100px auto;
     font-family: 'Poppins';
     font-size: 1rem;
     color: var(--dark-grey);
@@ -263,7 +264,7 @@
     background-color: transparent;
     border: 1px solid var(--main-turquoise);
     border-radius: 300px;
-    display: table;
+
 }
 
 .see-all-educateurs:hover {

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
      integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
      crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+    <script defer src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
      integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
      crossorigin=""></script>
 
@@ -37,8 +37,24 @@
         </div>
         <div class="educateurs-container">
             <div class="educateurs-grid" >
-                {% for id, educateur in database.items() %}
+                {% for id, educateur in first_results.items() %}
                     <div class="educateur" data-id="{{ id }}">
+                        <div class="educateur-bio">
+                            <img src="{{ educateur['image'] }}" alt="">
+                            <p class="educateur-name">{{ educateur['name'] }}</p>
+                        </div>
+                        <div class="educateur-details">
+                            <p class="educateur-address">📍{{ educateur['address'] }}</p>
+                            <div class="educateur-review">{{ educateur['googleReviews']|safe}}</div>
+                            <div class="educateur-buttons">
+                                <a class="educateur-button educateur-page" href="{{url_for('educateur_page', educateur_id=id) }}">En savoir plus</a>
+                                <a class="educateur-button educateur-website" href="{{ educateur['website'] }}" target="_blank">Voir le site</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                {% for id, educateur in remaining_results.items() %}
+                    <div class="educateur hidden" data-id="{{ id }}">
                         <div class="educateur-bio">
                             <img src="{{ educateur['image'] }}" alt="">
                             <p class="educateur-name">{{ educateur['name'] }}</p>
@@ -55,6 +71,7 @@
                 {% endfor %}
             </div>
         </div>
+            <button class="see-all-educateurs">Voir tous les éducateurs</button>
         {% include "footer.html"%}
     </div>
 </body>
@@ -62,7 +79,7 @@
 <script type="text/javascript">
     const database = {{database | tojson}}
 </script>
-<script src="{{url_for('static', filename='js/script_educateurs_list.js')}}"></script>
+<script defer src="{{url_for('static', filename='js/script_educateurs_list.js')}}"></script>
 <script src="{{url_for('static', filename='js/header.js')}}"></script>
 </html>
 
