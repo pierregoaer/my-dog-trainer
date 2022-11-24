@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-from get_database import database
+from get_database import educateurs_database, blogs_database
 
 app = Flask(__name__)
 
@@ -13,7 +13,7 @@ def home():
 def educateurs_list():
     if request.method == "GET":
         is_filtered = False
-        return render_template('educateurs_list.html', database=database, is_filtered=is_filtered)
+        return render_template('educateurs_list.html', database=educateurs_database, is_filtered=is_filtered)
     if request.method == "POST":
         department = request.form["department"]
         return redirect(url_for('department_search', department=department))
@@ -23,7 +23,7 @@ def educateurs_list():
 def department_search(department):
     is_filtered = True
     filtered_database = {}
-    for id, educateur in database.items():
+    for id, educateur in educateurs_database.items():
         if educateur["department"] == department:
             filtered_database[id] = educateur
     return render_template('educateurs_list.html', database=filtered_database, is_filtered=is_filtered)
@@ -36,7 +36,7 @@ def region_search(region):
     all_results = {}
     first_6_results = {}
     remaining_results = {}
-    for id, educateur in database.items():
+    for id, educateur in educateurs_database.items():
         if educateur["region"] == region:
             all_results[id] = educateur
             if counter < 6:
@@ -53,13 +53,24 @@ def region_search(region):
 
 @app.route('/educateur/<int:educateur_id>')
 def educateur_page(educateur_id):
-    educateur_request = database[educateur_id]
+    educateur_request = educateurs_database[educateur_id]
     return render_template('educateur_page.html', educateur=educateur_request)
 
 
+@app.route('/blog')
+def blog_page():
+    return render_template('blog_page.html', blogs=blogs_database)
+
+
+@app.route('/blog/<article_url>')
+def blog_article(article_url):
+    selected_article = blogs_database[article_url]
+    return render_template('blog_article.html', article=selected_article)
+
+
 if __name__ == "__main__":
-    app.run('0.0.0.0')
-    # app.run()
+    # app.run('0.0.0.0')
+    app.run()
 
 
 # TODO: Before committing -> change google credentials, change app.run server

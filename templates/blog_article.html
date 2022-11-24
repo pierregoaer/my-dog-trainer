@@ -12,17 +12,17 @@
 {% include "header.html"%}
 <div class="site-wrapper">
     <article>
-        <section class="blog-header">
-          <h1>{{ article["title"] }}</h1>
-          <img src="{{ article['hero-image-url'] }}" alt="" class="hero-image">
-        </section>
-        <section class="blog-body">
+        <div class="blog-header">
+            <h1>{{ article["title"] }}</h1>
+            <p class="article-date">{{ article["date"] }}</p>
+            <img src="{{ article['hero-image-url'] }}" alt="" class="hero-image">
+        </div>
+        <div class="blog-body">
             {{ article["article"] | safe }}
-        </section>
+        </div>
     </article>
     {% include "footer.html" %}
 </div>
 </body>
-<script src="{{url_for('static', filename='js/index.js')}}"></script>
 <script src="{{url_for('static', filename='js/header.js')}}"></script>
 </html>
