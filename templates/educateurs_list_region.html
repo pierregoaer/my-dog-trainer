@@ -62,6 +62,28 @@
         {% if remaining_results %}
             <a class="see-all-educateurs" href="/educateurs">Voir tous les éducateurs à {{ region }}</a>
         {% endif %}
+        {% if region == "Paris" %}
+            <div class="region-details-container">
+                <div class="region-details">
+                    <h3>Trouver un éducateur canin à Paris</h3>
+                    <p>A Paris, on trouve plus de 300 000 chiens. Tous les jours nous en croisons !</p>
+                    <p>Si vous habitez Paris ou la région Parisienne vous pourrez sûrement trouver un éducateur canin qui correspond à vos besoins et à ceux de votre chien.</p>
+                    <p>Un éducateur canin sera là pour vous aider à transformer votre relation avec votre chien pour obtenir la plus belle des complicités.</p>
+                    <p>Grâce aux éducateurs canins formés à des méthodes respectueuses de nos amis les chiens, vous pourrez obtenir un parcours d'apprentissage sur mesure. L'éducateur canin pourra répondre à toutes vos questions sur le dressage et les exercices à effectuer avec votre chien ou votre chiot.</p>
+                </div>
+            </div>
+        {% endif %}
+        {% if region == "Lyon" %}
+            <div class="region-details-container">
+                <div class="region-details">
+                    <h3>Trouver un éducateur canin à Lyon</h3>
+                    <p>Saviez-vous que les chiens nous accompagnent depuis plus de 12 000 ans ? Ce n'est pas pour rien que c'est le meilleur ami de l'Homme !</p>
+                    <p>Un chien ou un chiot grandi très vite. Si vous souhaitez passer des moments encore plus agréables avec votre chien ou votre chien. C’est là qu'un éducateur canin renforcera votre lien entre vous et votre chien. Si vous arrivez à interprêter votre chien ou votre chiot, et que lui aussi saura vous comprendre, vous aller développer la complicité avec votre meilleur ami, votre chien.</p>
+                    <p>Où que vous habitiez à Lyon ou en région Lyonnaise, vous trouverez sûrement un éducateur canin qui répondra à votre besoin et celui de votre chien !</p>
+                    <p>Les éducateurs canins aujourd'hui utilisent les meilleures méthodes d'éducation canine et de dressage de chien. Tout en respectant le chien, il vous apprendra les ordres de base à effectuer avec votre chien ou votre chiot mais aussi des ordres plus difficiles par la suite. N'hésitez pas à contacter un éducateur canin, il pourra très certainement vous aider à comprendre votre chien.</p>
+                </div>
+            </div>
+        {% endif %}
     </div>
     {% include "footer.html"%}
     </div>

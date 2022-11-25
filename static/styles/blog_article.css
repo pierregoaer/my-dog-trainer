@@ -53,10 +53,24 @@ article {
     margin-inline: auto;
 }
 
+.blog-CTA-container {
+    background-color: var(--light-turquoise);
+}
+
 @media only screen and (max-width: 700px){
+    .blog-header h1 {
+        font-size: 1.8rem;
+    }
+
     .blog-header img {
         width: 100%;
     }
+
+    .blog-body p,
+    .blog-body li {
+        font-size: 1rem;
+    }
+
     .blog-body img {
         width: 100%;
     }

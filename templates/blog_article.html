@@ -5,6 +5,7 @@
 
     <title>{{ article["meta-title"] }}</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/blog_article.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/bottom_page_cta.css') }}"/>
     <meta name="description" content= "{{ article['meta-description'] }}">
     <meta name=”robots” content="index, follow">
 </head>
@@ -21,6 +22,7 @@
             {{ article["article"] | safe }}
         </div>
     </article>
+    {% include "bottom_page_cta.html" %}
     {% include "footer.html" %}
 </div>
 </body>

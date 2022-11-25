@@ -139,6 +139,15 @@
     border-radius: 15px;
 }
 
+/*--- Blog section ---*/
+.blog-page-grid-container h2 {
+    max-width: 1000px;
+    margin: 30px auto -30px auto;
+    padding: 0 var(--section-padding);
+    font-size: 1.9rem;
+    color: var(--dark-turquoise);
+}
+
 /*--- Responsiveness ---*/
 @media only screen and (max-width: 1000px){
     .educateur-page-body .details-container {

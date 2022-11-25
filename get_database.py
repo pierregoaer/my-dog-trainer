@@ -90,7 +90,7 @@ for el in educateurs_data:
     }
 
 for el in blogs_data:
-    blogs_database[el["url"]] = {
+    blogs_database[el["id"]] = {
         "url": el["url"],
         "date": el["date"],
         "title": el["title"],

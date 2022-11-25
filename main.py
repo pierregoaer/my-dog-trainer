@@ -68,7 +68,16 @@ def region_search(region):
 @app.route('/educateur/<int:educateur_id>')
 def educateur_page(educateur_id):
     educateur_request = educateurs_database[educateur_id]
-    return render_template('educateur_page.html', educateur=educateur_request)
+    selected_articles = {}
+    number_of_articles = 2
+    counter = 0
+    for id, blog in blogs_database.items():
+        if counter < number_of_articles:
+            selected_articles[id] = blog
+            counter += 1
+    return render_template('educateur_page.html',
+                           educateur=educateur_request,
+                           blogs=selected_articles)
 
 
 @app.route('/blog')
@@ -78,7 +87,10 @@ def blog_page():
 
 @app.route('/blog/<article_url>')
 def blog_article(article_url):
-    selected_article = blogs_database[article_url]
+    selected_article = {}
+    for id, blog in blogs_database.items():
+        if blog["url"] == article_url:
+            selected_article = blog
     return render_template('blog_article.html', article=selected_article)
 
 

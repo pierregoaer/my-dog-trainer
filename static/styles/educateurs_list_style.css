@@ -255,7 +255,7 @@
 }
 
 .see-all-educateurs {
-    display: block;
+    display: table;
     margin: 20px auto 100px auto;
     font-family: 'Poppins';
     font-size: 1rem;
@@ -269,6 +269,28 @@
 
 .see-all-educateurs:hover {
     cursor: pointer;
+}
+
+.region-details-container {
+    background-color: var(--light-turquoise);
+}
+
+.region-details {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 80px var(--section-padding);
+}
+
+.region-details h3 {
+    font-size: 1.6rem;
+    color: var(--dark-turquoise);
+    margin-bottom: 25px;
+}
+
+.region-details p {
+    font-size: 1.1rem;
+    color: var(--dark-grey);
+    margin-bottom: 15px;
 }
 
 .hidden {
