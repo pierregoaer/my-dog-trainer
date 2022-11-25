@@ -4,6 +4,16 @@
     {% include "head.html"%}
 
     <title>Mon Educateur Canin</title>
+    <meta name="description" content= "Le meilleur moyen de trouver un éducateur canin partout en France">
+    <meta name=”robots” content="index, follow">
+
+<!--    Facebook tags-->
+    <meta property="og:url" content="https://www.mon-educateur-canin.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Mon Educateur Canin" />
+    <meta property="og:description" content="Le meilleur moyen de trouver un éducateur canin partout en France" />
+    <meta property="og:image" content="https://i.imgur.com/ryQpV5J.jpg" />
+
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/index.css') }}"/>
 </head>
 <body>
@@ -28,7 +38,7 @@
         <div class="main-section">
             <div class="sub-section">
                 <div class="sub-section-details">
-                    <img src="https://i.imgur.com/frTR39z.jpg" alt=""/>
+                    <img src="{{ url_for('static',filename='assets/mon-educateur-canin.jpg') }}" loading="lazy" alt=""/>
                     <div>
                         <h2>Pourquoi faire appel à un éducateur canin ?</h2>
                         <p>
@@ -48,7 +58,7 @@
             </div>
             <div class="sub-section">
                 <div class="sub-section-details">
-                    <img src="https://i.imgur.com/frTR39z.jpg" alt=""/>
+                    <img src="{{ url_for('static',filename='assets/mon-educateur-canin.jpg') }}" loading="lazy" alt=""/>
                     <div>
                         <h3>Accueillir un chiot</h3>
                         <p>L’arrivée d’un chiot peut être délicate, mais l’éducateur canin est là pour vous aider et vous
@@ -69,7 +79,7 @@
             </div>
             <div class="sub-section">
                 <div class="sub-section-details">
-                    <img src="https://i.imgur.com/frTR39z.jpg" alt=""/>
+                    <img src="{{ url_for('static',filename='assets/mon-educateur-canin.jpg') }}" loading="lazy" alt=""/>
                     <div>
                         <div>
                             <h2>Votre éducateur canin, partout en France</h2>

@@ -4,24 +4,35 @@
     {% include "head.html"%}
 
     <title>{{ article["meta-title"] }}</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/blog_article.css') }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/bottom_page_cta.css') }}"/>
     <meta name="description" content= "{{ article['meta-description'] }}">
     <meta name=”robots” content="index, follow">
+
+<!--    Facebook tags-->
+    <meta property="og:url" content="https://www.mon-educateur-canin.com/blog/{{ article['url'] }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{ article['meta-title'] }}" />
+    <meta property="og:description" content="{{ article['meta-description'] }}" />
+    <meta property="og:image" content="{{ article['hero-image-url'] }}" />
+
+<!--    Styles-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/blog_article.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/bottom_page_cta.css') }}"/>
 </head>
 <body>
 {% include "header.html"%}
 <div class="site-wrapper">
-    <article>
-        <div class="blog-header">
-            <h1>{{ article["title"] }}</h1>
-            <p class="article-date">{{ article["date"] }}</p>
-            <img src="{{ article['hero-image-url'] }}" alt="" class="hero-image">
-        </div>
-        <div class="blog-body">
-            {{ article["article"] | safe }}
-        </div>
-    </article>
+    <main>
+        <article>
+            <div class="blog-header">
+                <h1>{{ article["title"] }}</h1>
+                <p class="article-date">{{ article["date"] }}</p>
+                <img src="{{ article['hero-image-url'] }}" alt="" class="hero-image">
+            </div>
+            <div class="blog-body">
+                {{ article["article"] | safe }}
+            </div>
+        </article>
+    </main>
     {% include "bottom_page_cta.html" %}
     {% include "footer.html" %}
 </div>

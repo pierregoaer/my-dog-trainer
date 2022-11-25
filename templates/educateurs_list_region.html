@@ -3,7 +3,18 @@
 <head>
     {% include "head.html"%}
 
-    <title>Mon Educateur Canin - Nos Educateurs</title>
+    <title>Les Educateurs à {{ region }} - Mon Educateur Canin</title>
+
+    <meta name="description" content= "Le meilleur moyen de trouver un éducateur canin à {{ region }}">
+    <meta name=”robots” content="index, follow">
+
+<!--    Facebook tags-->
+    <meta property="og:url" content="https://www.mon-educateur-canin.com/éducateurs/region/{{ region }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Mon Educateur Canin à {{ region}}" />
+    <meta property="og:description" content="Le meilleur moyen de trouver un éducateur canin à {{ region }}" />
+    <meta property="og:image" content="https://i.imgur.com/ryQpV5J.jpg" />
+
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/educateurs_list_style.css') }}"/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
      integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="

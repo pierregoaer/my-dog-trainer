@@ -12,7 +12,6 @@ class App {
 
     getLatLong() {
         this.latLong = this.educateur["lat_long"];
-        console.log(this.latLong);
     }
 
     loadMap() {

@@ -27,7 +27,7 @@ def educateurs_list():
                                database=educateurs_database,
                                first_results=first_results,
                                remaining_results=remaining_results,
-                               is_filtered=is_filtered)
+                               is_filtered=False)
     if request.method == "POST":
         department = request.form["department"]
         return redirect(url_for('department_search', department=department))
@@ -40,7 +40,12 @@ def department_search(department):
     for id, educateur in educateurs_database.items():
         if educateur["department"] == department:
             filtered_database[id] = educateur
-    return render_template('educateurs_list.html', database=filtered_database, is_filtered=is_filtered)
+    return render_template('educateurs_list.html',
+                           database=filtered_database,
+                           first_results=filtered_database,
+                           remaining_results={},
+                           department=department,
+                           is_filtered=True)
 
 
 @app.route('/educateurs/region/<region>', methods=["POST", "GET"])

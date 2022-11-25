@@ -3,7 +3,17 @@
 <head>
     {% include "head.html"%}
 
-    <title>Mon Educateur Canin - {{ educateur['name'] }}</title>
+    <title>{{ educateur['name'] }} - Mon Educateur Canin</title>
+    <meta name="description" content= "Le meilleur moyen de trouver un éducateur canin partout en France">
+    <meta name=”robots” content="index, follow">
+
+<!--    Facebook tags-->
+    <meta property="og:url" content="https://www.mon-educateur-canin.com/educateur/{{ educateur['id'] }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ educateur['name'] }} - Mon Educateur Canin" />
+    <meta property="og:description" content="Le meilleur moyen de trouver un éducateur canin partout en France" />
+    <meta property="og:image" content="https://i.imgur.com/ryQpV5J.jpg" />
+
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/educateur_page_style.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/blog_preview_card.css') }}"/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
