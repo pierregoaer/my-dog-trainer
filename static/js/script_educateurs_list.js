@@ -27,7 +27,7 @@ class App {
         this.loadMap();
         this.initiateMarker();
         this.loadMarkers();
-        searchAroundMeButton.addEventListener("click", this.getPosition)
+        // searchAroundMeButton.addEventListener("click", this.getPosition)
         // displayMapButton.addEventListener("click", this.displayMap);
         seeAllEducateursButton.addEventListener("click", this.displayAllEducateurs)
     }
@@ -114,3 +114,17 @@ class App {
 
 const app = new App();
 
+searchAroundMeButton.addEventListener("click", function(){
+    const options = {
+          enableHighAccuracy: true,
+          timeout: 5000,
+          maximumAge: 0
+        };
+        if (navigator.geolocation)
+			navigator.geolocation.getCurrentPosition(function(position){
+                console.log(position)
+                app.moveMapToLocation(position);
+            }, function () {
+				alert('Veuillez autoriser la localisation pour utiliser cette fonction.');
+			}, options);
+})
