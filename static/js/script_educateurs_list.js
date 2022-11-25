@@ -94,7 +94,6 @@ class App {
     }
 
     moveMapToLocation(position) {
-        console.log(this);
         const { latitude, longitude } = position.coords;
         this.map.setView([latitude, longitude], 13, {animate: true, duration: 0.5});
     }
@@ -122,7 +121,6 @@ searchAroundMeButton.addEventListener("click", function(){
         };
         if (navigator.geolocation)
 			navigator.geolocation.getCurrentPosition(function(position){
-                console.log(position)
                 app.moveMapToLocation(position);
             }, function () {
 				alert('Veuillez autoriser la localisation pour utiliser cette fonction.');

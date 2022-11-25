@@ -53,13 +53,12 @@
 .educateur-page-body {
     max-width: 1000px;
     margin: 0 auto;
-    padding-block: 60px;
+    padding: 60px var(--section-padding);
 }
 
 .educateur-page-body .description-section,
 .educateur-page-body .details-section,
 .educateur-page-body .map-section {
-    padding-inline: var(--section-padding);
     margin: 0 auto 40px auto;
 }
 

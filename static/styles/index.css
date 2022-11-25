@@ -129,7 +129,7 @@
 
 .faq {
     max-width: 1000px;
-    margin-inline: auto;
+    margin: 0 auto;
     padding: 70px 20px;
     list-style: none;
 }
