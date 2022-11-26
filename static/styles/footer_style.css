@@ -10,7 +10,7 @@
     display: flex;
     align-items: flex-start;
     row-gap: 50px;
-    column-gap: 50px;
+    column-gap: 80px;
     padding: 30px var(--section-padding);
     border-bottom: 1px solid var(--dark-grey);
     box-sizing: border-box;
@@ -51,7 +51,7 @@
     max-width: var(--sections-max-width);
     margin: 0px auto;
     padding: var(--section-padding) ;
-    text-align: right;
+    text-align: left;
 }
 
 .footer-wrapper .copyrights span,

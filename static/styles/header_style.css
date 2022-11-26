@@ -136,7 +136,7 @@
 	transform: rotate(225deg);
 }
 
-@media (max-width: 800px) {
+@media (max-width: 950px) {
 	.logo{
 		height: 40px;
 	}

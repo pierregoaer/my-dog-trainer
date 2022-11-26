@@ -1,26 +1,27 @@
-<div class="footer-wrapper">
+<footer class="footer-wrapper">
     <div class="columns-wrapper">
         <div class="column column-1">
             <a href="{{ url_for('home') }}">
                 <img class="footer-logo" src="{{ url_for('static',filename='assets/logo.png') }}" alt=""/>
             </a>
             <p>
-                Le meilleur moyen de trouver votre éducateur canin.
+                Le meilleur moyen de trouver votre éducateur canin, partout en France.
             </p>
         </div>
         <div class="column column-2">
-            <p class="label">Les éducateurs par région</p>
-            <a href="/educateurs/region/Paris">Paris</a>
-            <a href="/educateurs/region/Lyon">Lyon</a>
+<!--            <p class="label">Les éducateurs par région</p>-->
+            <a href="/educateurs">Voir tous les éducateurs</a>
+            <a href="/educateurs/region/Paris">Educateurs à Paris</a>
+            <a href="/educateurs/region/Lyon">Educateurs à Lyon</a>
         </div>
         <div class="column column-3">
-            <p class="label">Navigation</p>
-            <a href="/educateurs">Voir tous les éducateurs</a>
+<!--            <p class="label">Navigation</p>-->
             <a href="/blog">Blog</a>
+            <a href="/contact">Contact</a>
+            <a href="/mentions-légales">Mentions légales</a>
         </div>
     </div>
     <div class="copyrights">
-        <a href="">Mentions légales</a>
-        <span>| © 2022 Mon Educateur Canin</span>
+        <span>© 2022 Mon Educateur Canin</span>
     </div>
-</div>
+</footer>

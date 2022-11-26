@@ -99,6 +99,19 @@ def blog_article(article_url):
     return render_template('blog_article.html', article=selected_article)
 
 
+@app.route('/contact', methods=["POST", "GET"])
+def contact():
+    if request.method == "GET":
+        return render_template('contact.html')
+    if request.method == "POST":
+        return
+
+
+@app.route('/mentions-légales')
+def legal_mentions():
+    return render_template('legal_mentions.html')
+
+
 if __name__ == "__main__":
     # app.run('0.0.0.0')
     app.run()

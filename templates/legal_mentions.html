@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "head.html"%}
+
+    <title>Mentions Légales - Mon Educateur Canin</title>
+    <meta name="description" content= "Le meilleur moyen de trouver un éducateur canin partout en France">
+    <meta name=”robots” content="index, follow">
+
+<!--    Facebook tags-->
+    <meta property="og:url" content="https://www.mon-educateur-canin.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Mon Educateur Canin" />
+    <meta property="og:description" content="Le meilleur moyen de trouver un éducateur canin partout en France" />
+    <meta property="og:image" content="https://i.imgur.com/ryQpV5J.jpg" />
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/legal_mentions.css') }}"/>
+</head>
+<body>
+{% include "header.html"%}
+<div class="site-wrapper">
+    <main class="legal_mentions">
+      <h1>Mentions Légales</h1>
+      <p>Ajouter texte ici.</p>
+    </main>
+    {% include "footer.html"%}
+</div>
+<script src="{{url_for('static', filename='js/header.js')}}"></script>
+</body>
+</html>

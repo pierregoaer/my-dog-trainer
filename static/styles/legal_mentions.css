@@ -1,0 +1,16 @@
+.legal_mentions {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: var(--section-padding);
+}
+
+.legal_mentions h1 {
+    color: var(--dark-turquoise);
+    margin-bottom: 40px;
+}
+
+.legal_mentions p {
+    font-size: 1.1rem;
+    color: var(--dark-grey);
+    margin-bottom: 20px;
+}
