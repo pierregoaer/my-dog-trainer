@@ -1,8 +1,8 @@
 //console.log(database)
 'use strict';
 
-const displayMapButton = document.querySelector('.display-map-button')
-const mapElement = document.querySelector('#map')
+const changeMapSizeButton = document.querySelector('.change-map-size')
+const mapContainer = document.querySelector('.map-container')
 const searchAroundMeButton = document.querySelector('.search-around-me-button')
 
 const seeAllEducateursButton = document.querySelector(".see-all-educateurs")
@@ -28,7 +28,7 @@ class App {
         this.initiateMarker();
         this.loadMarkers();
         // searchAroundMeButton.addEventListener("click", this.getPosition)
-        // displayMapButton.addEventListener("click", this.displayMap);
+        // changeMapSizeButton.addEventListener("click", this.changeMapSize);
         seeAllEducateursButton.addEventListener("click", this.displayAllEducateurs)
     }
 
@@ -98,10 +98,11 @@ class App {
         this.map.setView([latitude, longitude], 13, {animate: true, duration: 0.5});
     }
 
-    // displayMap() {
-    //     mapElement.classList.toggle('map-hidden');
-    //     displayMapButton.innerText === 'Afficher la carte' ? (displayMapButton.innerText = 'Cacher la carte') : (displayMapButton.innerText = 'Afficher la carte');
-    // }
+    changeMapSize() {
+        mapContainer.classList.toggle('map-full-screen');
+        mapContainer.scrollIntoView();;
+        changeMapSizeButton.innerText === 'Agrandir la carte' ? (changeMapSizeButton.innerText = 'Rétrécir la carte') : (changeMapSizeButton.innerText = 'Agrandir la carte');
+    }
 
     displayAllEducateurs() {
         hiddenEducateurs.forEach(hiddenEducateur => {

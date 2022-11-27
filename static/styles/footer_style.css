@@ -45,6 +45,7 @@
 .footer-wrapper p {
     color: var(--off-white-darker);
     font-size: 1.1rem;
+    font-weight: 200;
 }
 
 .footer-wrapper .copyrights {

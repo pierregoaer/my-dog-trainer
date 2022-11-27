@@ -1,5 +1,16 @@
+import os
 from flask import Flask, render_template, request, redirect, url_for
-from get_database import educateurs_database, blogs_database
+from get_database import educateurs_database, blogs_database, gsheet_file
+from datetime import datetime
+import smtplib
+
+
+GOOGLE_PASSWORD = os.environ["GOOGLE_PASSWORD"]
+EMAIL_SENDER = f'{os.environ["EMAIL_SENDER_1_1"]}@gmail.com'
+EMAIL_RECIPIENT_1 = f'{os.environ["EMAIL_RECIPIENT_1_1"]}.{os.environ["EMAIL_RECIPIENT_1_2"]}.ad@gmail.com'
+EMAIL_RECIPIENT_2 = f'{os.environ["EMAIL_RECIPIENT_2_1"]}.{os.environ["EMAIL_RECIPIENT_2_2"]}@gmail.com'
+
+print(GOOGLE_PASSWORD, EMAIL_SENDER, EMAIL_RECIPIENT_1, EMAIL_RECIPIENT_2)
 
 app = Flask(__name__)
 
@@ -104,7 +115,45 @@ def contact():
     if request.method == "GET":
         return render_template('contact.html')
     if request.method == "POST":
-        return
+        today = datetime.today().strftime("%d/%m/%Y %H:%M:%S")
+        name = request.form["name"]
+        profession = request.form["profession"]
+        email = request.form["email"]
+        phone = request.form["phone"]
+        message = request.form["message"]
+        contact_worksheet = gsheet_file.worksheet("contact")
+        worksheet_rows = len(contact_worksheet.get_all_values())
+        new_data = [today, name, profession, email, phone, message]
+        # Update Google Sheet with contacts
+        for col in range(1, 7):
+            contact_worksheet.update_cell(worksheet_rows + 1, col, str(new_data[col - 1]))
+
+        # Send email notification
+        with smtplib.SMTP("smtp.gmail.com") as connexion:
+            email_content = f"Subject: Nouveau contact sur Mon Educateur Canin\n\n" \
+                            f"Nouveau message recu!\n" \
+                            f"\n" \
+                            f"Date : {today}\n" \
+                            f"Nom : {name}\n" \
+                            f"Profession : {profession}\n" \
+                            f"Email : {email}\n" \
+                            f"Telephone : {phone}\n" \
+                            f"Message : {message}\n" \
+                            f"Voir https://docs.google.com/spreadsheets/d/1pj8GY-kOBB35c6W6dDo-dcyI_ecOOAvQ250930bjorc/edit#gid=580153284"
+            print(email_content)
+            print(type(email_content))
+            # enable secure connexion
+            connexion.starttls()
+            connexion.login(user=EMAIL_SENDER, password=GOOGLE_PASSWORD)
+            connexion.sendmail(from_addr=EMAIL_SENDER,
+                               to_addrs=[EMAIL_RECIPIENT_1, EMAIL_RECIPIENT_2],
+                               msg=email_content.encode('utf-8', 'ignore').decode('utf-8'))
+        return redirect(url_for('contact_thank_you'))
+
+
+@app.route('/contact/merci')
+def contact_thank_you():
+    return render_template('contact_thank_you.html')
 
 
 @app.route('/mentions-légales')

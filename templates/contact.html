@@ -21,10 +21,25 @@
 {% include "header.html"%}
 <div class="site-wrapper">
     <main>
-        <form action="">
+        <div class="contact-form-header-container">
+            <div class="contact-form-header">
+                <h1>Contact</h1>
+                <p>Vous avez une question sur comment éduquer votre chiot ou chien ? Vous êtes un éducateur et vous aimeriez être référencé sur nor plateforme ? Envoyez-nous un message et nous vous répondrons dès que possible.</p>
+            </div>
+        </div>
+        <form action="/contact" method="post" >
             <div class="form-field">
                 <input type="text" name="name" id="name" placeholder="nom" required>
                 <label for="name">Nom complet</label>
+                <span></span>
+            </div>
+            <div class="form-field">
+                <select name="profession" id="profession">
+                    <option>Educateur</option>
+                    <option>Particulier</option>
+                    <option>Autre</option>
+                </select>
+                <label for="profession">Vous êtes un:</label>
                 <span></span>
             </div>
             <div class="form-field">

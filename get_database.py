@@ -25,13 +25,13 @@ GOOGLE_SERVICE_ACCOUNT_CREDENTIALS = {
 service_acc = gspread.service_account_from_dict(GOOGLE_SERVICE_ACCOUNT_CREDENTIALS)
 # geolocator = Nominatim(user_agent="educateurs")
 
-sheet = service_acc.open("BDD_educateurs")
+gsheet_file = service_acc.open("BDD_educateurs")
 
-educateurs_worksheet = sheet.worksheet("BDD")
+educateurs_worksheet = gsheet_file.worksheet("BDD")
 educateurs_data = educateurs_worksheet.get_all_records()
 educateurs_database = {}
 
-blogs_worksheet = sheet.worksheet("blogs")
+blogs_worksheet = gsheet_file.worksheet("blogs")
 blogs_data = blogs_worksheet.get_all_records()
 blogs_database = {}
 
