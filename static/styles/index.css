@@ -143,7 +143,7 @@
 
 .faq li {
     border-bottom: 1px solid var(--dark-grey);
-    margin-bottom: 15px;
+    margin-bottom: 30px;
 }
 
 .faq li.active .answer {

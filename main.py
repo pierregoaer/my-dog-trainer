@@ -10,7 +10,7 @@ EMAIL_SENDER = f'{os.environ["EMAIL_SENDER_1_1"]}@gmail.com'
 EMAIL_RECIPIENT_1 = f'{os.environ["EMAIL_RECIPIENT_1_1"]}.{os.environ["EMAIL_RECIPIENT_1_2"]}.ad@gmail.com'
 EMAIL_RECIPIENT_2 = f'{os.environ["EMAIL_RECIPIENT_2_1"]}.{os.environ["EMAIL_RECIPIENT_2_2"]}@gmail.com'
 
-print(GOOGLE_PASSWORD, EMAIL_SENDER, EMAIL_RECIPIENT_1, EMAIL_RECIPIENT_2)
+# print(GOOGLE_PASSWORD, EMAIL_SENDER, EMAIL_RECIPIENT_1, EMAIL_RECIPIENT_2)
 
 app = Flask(__name__)
 
