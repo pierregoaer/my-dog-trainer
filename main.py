@@ -4,7 +4,6 @@ from get_database import educateurs_database, blogs_database, gsheet_file
 from datetime import datetime
 import smtplib
 
-
 GOOGLE_PASSWORD = os.environ["GOOGLE_PASSWORD"]
 EMAIL_SENDER = f'{os.environ["EMAIL_SENDER_1_1"]}@gmail.com'
 EMAIL_RECIPIENT_1 = f'{os.environ["EMAIL_RECIPIENT_1_1"]}.{os.environ["EMAIL_RECIPIENT_1_2"]}.ad@gmail.com'
@@ -23,7 +22,6 @@ def home():
 @app.route('/educateurs', methods=["POST", "GET"])
 def educateurs_list():
     if request.method == "GET":
-        is_filtered = False
         number_of_results = 18
         counter = 0
         first_results = {}
@@ -78,12 +76,15 @@ def region_search(region):
                            all_results=all_results,
                            first_6_results=first_6_results,
                            remaining_results=remaining_results,
-                           region=region)
+                           region=region,
+                           is_filtered=True)
 
 
-@app.route('/educateur/<int:educateur_id>')
+@app.route('/educateur/<educateur_id>')
 def educateur_page(educateur_id):
+    print(educateur_id)
     educateur_request = educateurs_database[educateur_id]
+    print(educateur_request)
     selected_articles = {}
     number_of_articles = 2
     counter = 0
@@ -162,8 +163,7 @@ def legal_mentions():
 
 
 if __name__ == "__main__":
-    # app.run('0.0.0.0')
-    app.run()
-
+    app.run('0.0.0.0')
+    # app.run()
 
 # TODO: Before committing -> change google credentials, change app.run server

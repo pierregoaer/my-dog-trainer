@@ -1,5 +1,5 @@
-//console.log(database)
 'use strict';
+//console.log(database)
 
 const changeMapSizeButton = document.querySelector('.change-map-size')
 const mapContainer = document.querySelector('.map-container')
@@ -13,8 +13,11 @@ class App {
     mapEvent;
     latLng;
     database = database;
+    isFiltered = isFiltered;
     markerIcon;
     markers = [];
+    zoomLevel;
+
     latLongMarkersTEST = [
         [48.5092884, 2.6335495],
         [48.565139, 2.7766934],
@@ -24,6 +27,7 @@ class App {
 
     constructor() {
         // console.log(this.database);
+        this.getZoomLevel();
         this.loadMap();
         this.initiateMarker();
         this.loadMarkers();
@@ -32,9 +36,13 @@ class App {
         seeAllEducateursButton.addEventListener("click", this.displayAllEducateurs)
     }
 
+    getZoomLevel() {
+        this.isFiltered ? this.zoomLevel = 7 : this.zoomLevel = 6;
+    }
+
     loadMap() {
         let mapView = this.database ? Object.values(this.database)[0]["lat_long"] : [48.565139, 2.7766934]
-        this.map = L.map('map').setView(mapView, 6);
+        this.map = L.map('map').setView(mapView, this.zoomLevel);
         L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | Mon Educateur Canin'
         }).addTo(this.map);
@@ -83,24 +91,25 @@ class App {
 
     getPosition() {
         const options = {
-          enableHighAccuracy: true,
-          timeout: 5000,
-          maximumAge: 0
+            enableHighAccuracy: true,
+            timeout: 5000,
+            maximumAge: 0
         };
         if (navigator.geolocation)
-			navigator.geolocation.getCurrentPosition(this.moveMapToLocation.bind(this), function () {
-				alert('Veuillez autoriser la localisation pour utiliser cette fonction.');
-			}, options);
+            navigator.geolocation.getCurrentPosition(this.moveMapToLocation.bind(this), function () {
+                alert('Veuillez autoriser la localisation pour utiliser cette fonction.');
+            }, options);
     }
 
     moveMapToLocation(position) {
-        const { latitude, longitude } = position.coords;
+        const {latitude, longitude} = position.coords;
         this.map.setView([latitude, longitude], 13, {animate: true, duration: 0.5});
     }
 
     changeMapSize() {
         mapContainer.classList.toggle('map-full-screen');
-        mapContainer.scrollIntoView();;
+        mapContainer.scrollIntoView();
+        ;
         changeMapSizeButton.innerText === 'Agrandir la carte' ? (changeMapSizeButton.innerText = 'Rétrécir la carte') : (changeMapSizeButton.innerText = 'Agrandir la carte');
     }
 
@@ -114,16 +123,16 @@ class App {
 
 const app = new App();
 
-searchAroundMeButton.addEventListener("click", function(){
+searchAroundMeButton.addEventListener("click", function () {
     const options = {
-          enableHighAccuracy: true,
-          timeout: 5000,
-          maximumAge: 0
-        };
-        if (navigator.geolocation)
-			navigator.geolocation.getCurrentPosition(function(position){
-                app.moveMapToLocation(position);
-            }, function () {
-				alert('Veuillez autoriser la localisation pour utiliser cette fonction.');
-			}, options);
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0
+    };
+    if (navigator.geolocation)
+        navigator.geolocation.getCurrentPosition(function (position) {
+            app.moveMapToLocation(position);
+        }, function () {
+            alert('Veuillez autoriser la localisation pour utiliser cette fonction.');
+        }, options);
 })

@@ -103,7 +103,8 @@
 </body>
 
 <script type="text/javascript">
-    const database = {{ all_results|tojson }}
+    const database = {{ all_results|tojson }};
+    const isFiltered = {{ is_filtered | tojson }};
 </script>
 <script src="{{url_for('static', filename='js/script_educateurs_list.js')}}"></script>
 <script src="{{url_for('static', filename='js/header.js')}}"></script>

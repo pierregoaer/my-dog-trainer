@@ -89,6 +89,7 @@
 
 <script type="text/javascript">
     const database = {{ database | tojson }};
+    const isFiltered = {{ is_filtered | tojson }};
 </script>
 <script defer src="{{url_for('static', filename='js/script_educateurs_list.js')}}"></script>
 <script src="{{url_for('static', filename='js/header.js')}}"></script>
