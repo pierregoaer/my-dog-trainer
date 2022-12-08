@@ -163,7 +163,7 @@ def legal_mentions():
 
 
 if __name__ == "__main__":
-    app.run('0.0.0.0')
-    # app.run()
+    # app.run('0.0.0.0')
+    app.run()
 
 # TODO: Before committing -> change google credentials, change app.run server
