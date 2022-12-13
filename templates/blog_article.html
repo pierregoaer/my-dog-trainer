@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     {% include "head.html"%}
 
     <title>{{ article["meta-title"] }}</title>
-    <meta name="description" content= "{{ article['meta-description'] }}">
+    <meta name="description" content="{{ article['meta-description'] }}">
     <meta name=”robots” content="index, follow">
 
-<!--    Facebook tags-->
-    <meta property="og:url" content="https://www.mon-educateur-canin.com/blog/{{ article['url'] }}" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="{{ article['meta-title'] }}" />
-    <meta property="og:description" content="{{ article['meta-description'] }}" />
-    <meta property="og:image" content="{{ article['hero-image-url'] }}" />
+    <!--    Facebook tags-->
+    <meta property="og:url" content="https://www.mon-educateur-canin.com/blog/{{ article['url'] }}"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="{{ article['meta-title'] }}"/>
+    <meta property="og:description" content="{{ article['meta-description'] }}"/>
+    <meta property="og:image" content="{{ article['hero-image-url'] }}"/>
 
-<!--    Styles-->
+    <!--    Styles-->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/blog_article.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/bottom_page_cta.css') }}"/>
 </head>
@@ -26,7 +26,7 @@
             <div class="blog-header">
                 <h1>{{ article["title"] }}</h1>
                 <p class="article-date">{{ article["date"] }}</p>
-                <img src="{{ article['hero-image-url'] }}" alt="" class="hero-image">
+                <img src="{{ article['hero-image-url'] }}" alt="{{ article['title'] }}" class="hero-image">
             </div>
             <div class="blog-body">
                 {{ article["article"] | safe }}

@@ -79,10 +79,9 @@ for el in educateurs_data:
         replace("  ", " "). \
         replace(" ", "-")
 
-    # educateurs_database[el["id"]] = {
     educateurs_database[id_name] = {
         "id": id_name,
-        # "id": el["id"],
+        "id_number": el["id"],
         "name": el["Nom éducateur"],
         "address": el["Adresse"],
         "department": el["Département"],
@@ -90,7 +89,13 @@ for el in educateurs_data:
         # "lat_long": [location.latitude, location.longitude],
         "lat_long": [el["Latitude"], el["Longitude"]],
         "phone": el["Téléphone"],
+        "email": el["Email"],
         "website": el["Site internet"] if el["Site internet"][:4] == "http" else f'https://{el["Site internet"]}',
+        "socials": {
+            "facebook": el["Facebook"],
+            "instagram": el["Instagram"],
+            "youtube": el["Youtube"],
+        },
         "googleReviews": return_google_review(rounded_google_review),
         "hours": {
             "monday": el["lundi"],

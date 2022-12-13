@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     {% include "head.html"%}
 
-    <title>Contact - Mon Educateur Canin</title>
-    <meta name="description" content= "Le meilleur moyen de trouver un éducateur canin partout en France">
+    <title>Contact - Mon éducateur canin</title>
+    <meta name="description"
+          content="Mon éducateur canin, c'est le meilleur moyen pour trouver un éducateur canin. Un annuaire qui rendra votre chien ou chiot heureux.">
     <meta name=”robots” content="index, follow">
 
-<!--    Facebook tags-->
-    <meta property="og:url" content="https://www.mon-educateur-canin.com/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Contact - Mon Educateur Canin" />
-    <meta property="og:description" content="Le meilleur moyen de trouver un éducateur canin partout en France" />
-    <meta property="og:image" content="https://i.imgur.com/ryQpV5J.jpg" />
+    <!--    Facebook tags-->
+    <meta property="og:url" content="https://www.mon-educateur-canin.com/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Contact - Mon Educateur Canin"/>
+    <meta property="og:description" content="Le meilleur moyen de trouver un éducateur canin partout en France"/>
+    <meta property="og:image" content="https://i.imgur.com/ryQpV5J.jpg"/>
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/contact.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/bottom_page_cta.css') }}"/>
@@ -21,8 +22,8 @@
 {% include "header.html"%}
 <div class="site-wrapper">
     <main style="max-width: 800px; margin: 0 auto; padding: 180px 20px">
-      <h1 style="text-align: center; color: var(--dark-turquoise); font-size: 2rem; margin-bottom: 15px;">Merci!</h1>
-      <p style="text-align: center; color: var(--dark-grey); font-size: 1.1rem">Votre message a bien été envoyé.</p>
+        <h1 style="text-align: center; color: var(--dark-turquoise); font-size: 2rem; margin-bottom: 15px;">Merci!</h1>
+        <p style="text-align: center; color: var(--dark-grey); font-size: 1.1rem">Votre message a bien été envoyé.</p>
     </main>
     {% include "bottom_page_cta.html"%}
     {% include "footer.html"%}

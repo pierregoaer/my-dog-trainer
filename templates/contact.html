@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     {% include "head.html"%}
 
-    <title>Contact - Mon Educateur Canin</title>
-    <meta name="description" content= "Le meilleur moyen de trouver un éducateur canin partout en France">
+    <title>Contact - Mon éducateur canin</title>
+    <meta name="description"
+          content="Mon éducateur canin, c'est le meilleur moyen pour trouver un éducateur canin. Un annuaire qui rendra votre chien ou chiot heureux.">
     <meta name=”robots” content="index, follow">
 
-<!--    Facebook tags-->
-    <meta property="og:url" content="https://www.mon-educateur-canin.com/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Contact - Mon Educateur Canin" />
-    <meta property="og:description" content="Le meilleur moyen de trouver un éducateur canin partout en France" />
-    <meta property="og:image" content="https://i.imgur.com/ryQpV5J.jpg" />
+    <!--    Facebook tags-->
+    <meta property="og:url" content="https://www.mon-educateur-canin.com/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Contact - Mon Educateur Canin"/>
+    <meta property="og:description" content="Le meilleur moyen de trouver un éducateur canin partout en France"/>
+    <meta property="og:image" content="https://i.imgur.com/ryQpV5J.jpg"/>
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/contact.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/bottom_page_cta.css') }}"/>
@@ -24,10 +25,12 @@
         <div class="contact-form-header-container">
             <div class="contact-form-header">
                 <h1>Contact</h1>
-                <p>Vous avez une question sur comment éduquer votre chiot ou chien ? Vous êtes un éducateur et vous aimeriez être référencé sur nor plateforme ? Envoyez-nous un message et nous vous répondrons dès que possible.</p>
+                <p>Vous avez une question sur comment éduquer votre chiot ou chien ? Vous êtes un éducateur et vous
+                    aimeriez être référencé sur nor plateforme ? Envoyez-nous un message et nous vous répondrons dès que
+                    possible.</p>
             </div>
         </div>
-        <form action="/contact" method="post" >
+        <form action="/contact" method="post">
             <div class="form-field">
                 <input type="text" name="name" id="name" placeholder="nom" required>
                 <label for="name">Nom complet</label>

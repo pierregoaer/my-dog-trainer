@@ -32,6 +32,7 @@
     fill: var(--off-white);
 }
 
+
 .educateur-page-header img {
     object-fit: cover;
     border-radius: 50%;
@@ -39,14 +40,33 @@
     width: 300px;
 }
 
-.educateur-page-header a {
+.educateur-page-header .educateur-socials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 15px;
+}
+
+.educateur-page-header .educateur-socials svg {
+    width: 35px;
+    aspect-ratio: 1;
+    fill: var(--off-white);
+    transition: all .1s ease-in-out;
+}
+
+.educateur-page-header .educateur-socials svg:hover {
+    transform: translateY(-2px);
+    fill: #ddd;
+}
+
+.educateur-page-header .educateur-website {
     padding: 10px 20px;
     background-color: white;
     color: #0B5351;
     border-radius: 300px;
 }
 
-.educateur-page-header a:hover {
+.educateur-page-header .educateur-website:hover {
     background-color: #ddd;
 }
 
@@ -102,17 +122,21 @@
 .details-section svg {
     width: 40px;
     aspect-ratio: 1;
-    margin-right: 10px;
+    /*margin-right: 10px;*/
     fill: var(--main-turquoise);
 }
 
 .details-section .label {
     color: var(--light-grey);
-    margin-right: 5px;
+    /*margin-right: 5px;*/
 }
 
 .details-section .detail-text {
     text-align: center;
+}
+
+.contact-container .detail-text {
+    margin-bottom: 15px;
 }
 
 .details-section .hours-container {
@@ -126,7 +150,6 @@
     row-gap: 10px;
     align-items: center;
 }
-
 
 
 /*--- Map section ---*/
@@ -148,15 +171,15 @@
 }
 
 /*--- Responsiveness ---*/
-@media only screen and (max-width: 1000px){
+@media only screen and (max-width: 1000px) {
     .educateur-page-body .details-container {
-      flex-direction: column;
+        flex-direction: column;
     }
 }
 
-@media only screen and (max-width: 500px){
+@media only screen and (max-width: 500px) {
     .educateur-page-header img {
-      height: 150px;
-      width: 150px;
+        height: 150px;
+        width: 150px;
     }
 }

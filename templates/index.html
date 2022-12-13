@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     {% include "head.html"%}
 
-    <title>Mon Educateur Canin</title>
-    <meta name="description" content= "Le meilleur moyen de trouver un éducateur canin partout en France">
+    <title>Mon éducateur canin - l'annuaire des éducateurs canins en France</title>
+    <meta name="description"
+          content="Mon éducateur canin, c'est le meilleur moyen pour trouver un éducateur canin. Un annuaire qui rendra votre chien ou chiot heureux.">
     <meta name=”robots” content="index, follow">
 
-<!--    Facebook tags-->
-    <meta property="og:url" content="https://www.mon-educateur-canin.com/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Mon Educateur Canin" />
-    <meta property="og:description" content="Le meilleur moyen de trouver un éducateur canin partout en France" />
-    <meta property="og:image" content="https://i.imgur.com/ryQpV5J.jpg" />
+    <!--    Facebook tags -->
+    <meta property="og:url" content="https://www.mon-educateur-canin.com/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Mon Educateur Canin"/>
+    <meta property="og:description" content="Le meilleur moyen de trouver un éducateur canin partout en France"/>
+    <meta property="og:image" content="https://i.imgur.com/ryQpV5J.jpg"/>
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/index.css') }}"/>
 </head>
@@ -29,7 +30,7 @@
                 <a href="{{ url_for('educateurs_list') }}">Découvrir les éducateurs</a>
             </div>
             <div class="hero-section-image">
-                <img src="/static/assets/hero-image.png" alt=""/>
+                <img src="/static/assets/hero-image.png" alt="Mon éducateur canin - image principal"/>
             </div>
         </div>
     </div>
@@ -38,19 +39,22 @@
         <div class="main-section">
             <div class="sub-section">
                 <div class="sub-section-details">
-                    <img src="{{ url_for('static',filename='assets/mon-educateur-canin.jpg') }}" loading="lazy" alt="Chien souriant"/>
+                    <img src="{{ url_for('static',filename='assets/mon-educateur-canin.jpg') }}" loading="lazy"
+                         alt="Chien souriant"/>
                     <div>
                         <h2>Pourquoi faire appel à un éducateur canin ?</h2>
                         <p>
-                            Bien sûr, les avantages d’un éducateur canin sont nombreux mais il permet d’avoir un chien qui :<br>
+                            Bien sûr, les avantages d’un éducateur canin sont nombreux mais il permet d’avoir un chien
+                            qui :<br><br>
                             – Marche en laisse parfaitement <br>
                             – Revient quand vous le rappelez <br>
                             – Ne bouge pas au restaurant ou chez des amis <br>
                             – Vous suive partout <br>
                             – Se couche ou s’assoie quand vous le lui demandez <br>
                             – Vous écoute dans toutes les situations sans lui crier dessus <br>
-                            – Soit votre complice de tous les jours <br>
-                            Avez Mon éducateur canin, vous trouverez le professionnel de l’éducation canine et du dressage
+                            – Soit votre complice de tous les jours <br><br>
+                            Avec Mon éducateur canin, vous trouverez le professionnel de l’éducation canine et du
+                            dressage
                             des chiens utilisant une méthode respectueuse la plus adaptée à votre chien !
                         </p>
                     </div>
@@ -61,12 +65,16 @@
                     <img src="https://i.imgur.com/WILsxnI.jpg" loading="lazy" alt="Chien avec son maitre"/>
                     <div>
                         <h3>Accueillir un chiot</h3>
-                        <p>L’arrivée d’un chiot peut être délicate, mais l’éducateur canin est là pour vous aider et vous
-                            faciliter la vie. Quelques cours de dressage de base vous permettrons d’avoir un chiot serein
+                        <p>L’arrivée d’un chiot peut être délicate, mais l’éducateur canin est là pour vous aider et
+                            vous
+                            faciliter la vie. Quelques cours de dressage de base vous permettrons d’avoir un chiot
+                            serein
                             dans ses pattes !</p>
                         <h3>Adapté à votre chien</h3>
-                        <p>Novice ou perfectionné, les méthodes d’éducations canines seront adaptés à votre chien. Rien de
-                            tel qu’un éducateur canin comportementaliste pour composer des programmes complets d’éducations
+                        <p>Novice ou perfectionné, les méthodes d’éducations canines seront adaptés à votre chien. Rien
+                            de
+                            tel qu’un éducateur canin comportementaliste pour composer des programmes complets
+                            d’éducations
                             canine spécifiques à votre chien. Vous verrez, vous vous amuserez et votre chien aussi !</p>
                         <h3>Développez votre complicité maître - chien</h3>
                         <p>L’éducateur canin sera là pour favoriser la complicité du couple maître-chien pour qu’ils
@@ -84,7 +92,8 @@
                         <div>
                             <h2>Votre éducateur canin, partout en France</h2>
                             <p>
-                                Vous recherchez un éducateur canin comportementaliste dans une région en particulier ? Vous
+                                Vous recherchez un éducateur canin comportementaliste dans une région en particulier ?
+                                Vous
                                 êtes au bon endroit pour éduquer votre chiot ou votre chien en France.<br>
                             </p>
                         </div>
@@ -107,24 +116,34 @@
                     <div class="plus-minus-toggle collapsed"></div>
                 </h3>
                 <div class="answer">
-                    La première chose à savoir, c’est qu’il n’est jamais trop tard pour éduquer son chien ou son chiot qui a
+                    La première chose à savoir, c’est qu’il n’est jamais trop tard pour éduquer son chien ou son chiot
+                    qui a
                     grandi !<br/>
-                    Evidemment, les chiens sont capables de ressentir nos émotions et notre comportement. Il faut savoir que
+                    Evidemment, les chiens sont capables de ressentir nos émotions et notre comportement. Il faut savoir
+                    que
                     votre chien n’est motivé que par une seule chose : vous rendre heureux et passer du temps avec vous.
-                    Bien sûr, tout le monde veut un chien attaché à son propriétaire, amical et obéissant c’est pourquoi son
+                    Bien sûr, tout le monde veut un chien attaché à son propriétaire, amical et obéissant c’est pourquoi
+                    son
                     éducation est importante.<br/>
-                    Vivre avec un chien éduqué, c’est la promesse de passer de super moment avec lui ! L’éducation de votre
-                    chien permet également de prévenir le danger. Un exemple tout bête, en marchant, si votre chien voit un
-                    chat au loin et veut le chasser, lui apprendre quelques ordres et exercices de base peuvent vous aider à
+                    Vivre avec un chien éduqué, c’est la promesse de passer de super moment avec lui ! L’éducation de
+                    votre
+                    chien permet également de prévenir le danger. Un exemple tout bête, en marchant, si votre chien voit
+                    un
+                    chat au loin et veut le chasser, lui apprendre quelques ordres et exercices de base peuvent vous
+                    aider à
                     le contrôler.<br/>
-                    Tout comme son ancêtre, le loup, lorsqu’un chien arrive dans une famille il va chercher à comprendre le
-                    fonctionnement mais aussi chercher sa place. Pour qu’il soit ainsi pleinement épanoui dans sa nouvelle
-                    famille, votre compagnon doit pouvoir compter sur un maître qui est rassurant et aimant, auquel il peut
+                    Tout comme son ancêtre, le loup, lorsqu’un chien arrive dans une famille il va chercher à comprendre
+                    le
+                    fonctionnement mais aussi chercher sa place. Pour qu’il soit ainsi pleinement épanoui dans sa
+                    nouvelle
+                    famille, votre compagnon doit pouvoir compter sur un maître qui est rassurant et aimant, auquel il
+                    peut
                     faire entièrement confiance et qui se positionne en tant que leader.<br/>
                     Mais quoi de mieux que passer du temps avec votre chien au travers des apprentissages que vous lui
                     apporterez ? Tout cela n’aura qu’un seul effet : renforcer votre complicité !<br/>
                     En donnant sa juste place à votre compagnon, vous assurerez sa sécurité mais vous développerez aussi
-                    votre complicité grâce au temps que vous lui accorderez, tout en étant accompagné par un professionnel
+                    votre complicité grâce au temps que vous lui accorderez, tout en étant accompagné par un
+                    professionnel
                     de l’éducation canine.
                 </div>
             </li>
@@ -143,9 +162,11 @@
                     <div class="plus-minus-toggle collapsed"></div>
                 </h3>
                 <div class="answer">
-                    Tout ce que vous avez à faire est de suivre quelques leçons de base de dressage ou d’éducation canine,
+                    Tout ce que vous avez à faire est de suivre quelques leçons de base de dressage ou d’éducation
+                    canine,
                     d’établir des règles simples chaque jour et, surtout, de vous armer d’assez de patience.<br/>
-                    En fin de compte, c’est un effort d’équipe qui ne dépend pas de l’âge ou de la race du chien, mais de
+                    En fin de compte, c’est un effort d’équipe qui ne dépend pas de l’âge ou de la race du chien, mais
+                    de
                     votre amour pour votre chien.<br/>
                     Il existe une multitude de techniques d’éducation ou d’apprentissage.
                 </div>
@@ -158,14 +179,18 @@
                 <div class="answer">
                     Le <strong>Assis</strong> : pour apprendre à votre canin à se poser mais aussi à se recentrer sur
                     vous.<br/>
-                    Le <strong>Coucher</strong> : pour apprendre à votre canin à rester plus longtemps qu’en position assis.<br/>
+                    Le <strong>Coucher</strong> : pour apprendre à votre canin à rester plus longtemps qu’en position
+                    assis.<br/>
                     Le <strong>Pas Bouger</strong> : pour apprendre à votre canin à rester en statique lorsque vous lui
                     demandez à tout moment.<br/>
-                    Le <strong>Rappel</strong> : pour que votre canin puisse être libre et qu’il revienne quand vous le lui
+                    Le <strong>Rappel</strong> : pour que votre canin puisse être libre et qu’il revienne quand vous le
+                    lui
                     demandez.<br/>
-                    Le <strong>Pas toucher</strong> : pour apprendre à votre canin à renoncer, n’oubliez pas que « renoncer,
+                    Le <strong>Pas toucher</strong> : pour apprendre à votre canin à renoncer, n’oubliez pas que «
+                    renoncer,
                     c’est gagner ».<br/>
-                    Pour apprendre ces quelques exercices, les éducateurs canins comportementalistes possèdent de nombreux
+                    Pour apprendre ces quelques exercices, les éducateurs canins comportementalistes possèdent de
+                    nombreux
                     conseils, qu’ils seront ravis de partager.
                 </div>
             </li>
@@ -175,8 +200,10 @@
                     <div class="plus-minus-toggle collapsed"></div>
                 </h3>
                 <div class="answer">
-                    Une multitude de jeux existe pour votre chien ou chiot ! Nous vous dirons que la seule limite n’est que
-                    votre imagination. Par exemple, rien qu’avec une bouteille en plastique, on peut fabriquer les meilleurs
+                    Une multitude de jeux existe pour votre chien ou chiot ! Nous vous dirons que la seule limite n’est
+                    que
+                    votre imagination. Par exemple, rien qu’avec une bouteille en plastique, on peut fabriquer les
+                    meilleurs
                     jouets pour votre chien.<br/>
                     Il faut savoir que la dépense la plus fatigante pour un chien est celle où il doit réfléchir, son
                     cerveau est tellement sollicité que les bras de Morphée arriveront très vite après ce type
@@ -195,7 +222,8 @@
                     <div class="plus-minus-toggle collapsed"></div>
                 </h3>
                 <div class="answer">
-                    Beaucoup d’activités sportives peuvent être effectuées avec votre chien dans l’idéal à partir de 1 an
+                    Beaucoup d’activités sportives peuvent être effectuées avec votre chien dans l’idéal à partir de 1
+                    an
                     :<br/>
                     – Cani-cross<br/>
                     – Cani – VTT<br/>
@@ -204,7 +232,8 @@
                     – L’agility<br/>
                     – L’obérythmée<br/>
                     – Le pistage<br/>
-                    Une multitude d’événements sont organisés tout au long de l’année par des clubs canins alors n’hésitez
+                    Une multitude d’événements sont organisés tout au long de l’année par des clubs canins alors
+                    n’hésitez
                     pas à regarder autour de chez vous ou sur les sites d’événements canins.
                 </div>
             </li>

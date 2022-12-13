@@ -82,9 +82,8 @@ def region_search(region):
 
 @app.route('/educateur/<educateur_id>')
 def educateur_page(educateur_id):
-    print(educateur_id)
     educateur_request = educateurs_database[educateur_id]
-    print(educateur_request)
+    # print(educateur_request)
     selected_articles = {}
     number_of_articles = 2
     counter = 0
@@ -105,7 +104,7 @@ def blog_page():
 @app.route('/blog/<article_url>')
 def blog_article(article_url):
     selected_article = {}
-    for id, blog in blogs_database.items():
+    for _, blog in blogs_database.items():
         if blog["url"] == article_url:
             selected_article = blog
     return render_template('blog_article.html', article=selected_article)
@@ -141,8 +140,8 @@ def contact():
                             f"Telephone : {phone}\n" \
                             f"Message : {message}\n" \
                             f"Voir https://docs.google.com/spreadsheets/d/1pj8GY-kOBB35c6W6dDo-dcyI_ecOOAvQ250930bjorc/edit#gid=580153284"
-            print(email_content)
-            print(type(email_content))
+            # print(email_content)
+            # print(type(email_content))
             # enable secure connexion
             connexion.starttls()
             connexion.login(user=EMAIL_SENDER, password=GOOGLE_PASSWORD)

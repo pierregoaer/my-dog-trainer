@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     {% include "head.html"%}
 
-    <title>Les Educateurs à {{ region }} - Mon Educateur Canin</title>
+    <title>Les Educateurs à {{ region }} - Mon éducateur canin</title>
 
-    <meta name="description" content= "Le meilleur moyen de trouver un éducateur canin à {{ region }}">
+    <meta name="description" content= "Mon éducateur canin, c'est le meilleur moyen pour trouver un éducateur canin. Un annuaire qui rendra votre chien ou chiot heureux.">
     <meta name=”robots” content="index, follow">
 
 <!--    Facebook tags-->
@@ -42,7 +42,7 @@
             {% for id, educateur in first_6_results.items() %}
                 <div class="educateur" data-id="{{ id }}">
                     <div class="educateur-bio">
-                        <img src="{{ educateur['image'] }}" alt="">
+                        <img src="{{ educateur['image'] }}" alt="Logo - {{ educateur['name'] }}">
                         <p class="educateur-name">{{ educateur['name'] }}</p>
                     </div>
                     <div class="educateur-details">

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="efr">
 <head>
     {% include "head.html"%}
 
-    <title>Blog - Mon Educateur Canin</title>
-    <meta name="description" content="Le meilleur moyen de trouver un éducateur canin partout en France">
+    <title>Blog - Mon éducateur canin</title>
+    <meta name="description"
+          content="Mon éducateur canin, c'est le meilleur moyen pour trouver un éducateur canin. Un annuaire qui rendra votre chien ou chiot heureux.">
     <meta name=”robots” content="index, follow">
 
     <!--    Facebook tags-->
@@ -32,7 +33,7 @@
             <div class="blog-page-grid">
                 {% for url, blog in blogs.items() %}
                 <div class="blog-article">
-                    <img src="{{ blog['hero-image-url'] }}" alt="">
+                    <img src="{{ blog['hero-image-url'] }}" alt="{{ blog['title'] }}">
                     <div class="blog-details">
                         <h3 class="blog-title">{{ blog['title'] }}</h3>
                         <p class="blog-description">{{ blog['meta-description'] }}</p>

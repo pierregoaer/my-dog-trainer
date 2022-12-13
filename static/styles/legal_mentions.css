@@ -1,5 +1,5 @@
 .legal_mentions {
-    max-width: 800px;
+    max-width: 900px;
     margin: 50px auto;
     padding: var(--section-padding);
 }
@@ -13,4 +13,9 @@
     font-size: 1.1rem;
     color: var(--dark-grey);
     margin-bottom: 20px;
+}
+
+.legal_mentions h2 {
+    color: var(--dark-turquoise);
+    margin: 50px 0 10px 0;
 }
