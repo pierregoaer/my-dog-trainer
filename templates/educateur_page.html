@@ -3,15 +3,15 @@
 <head>
     {% include "head.html"%}
 
-    <title>{{ educateur['name'][:40] }} - Mon éducateur canin</title>
-    <meta name="description" content= "Mon éducateur canin, c'est le meilleur moyen pour trouver un éducateur canin. Un annuaire qui rendra votre chien ou chiot heureux.">
+    <title>{{ educateur['name'] }} - Mon éducateur canin</title>
+    <meta name="description" content= "{{ educateur['description'].partition(' ! C\'est')[0] }}">
     <meta name=”robots” content="index, follow">
 
 <!--    Facebook tags-->
     <meta property="og:url" content="https://www.mon-educateur-canin.com/educateur/{{ educateur['id'] }}" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{ educateur['name'] }} - Mon Educateur Canin" />
-    <meta property="og:description" content="Le meilleur moyen de trouver un éducateur canin partout en France" />
+    <meta property="og:description" content="{{ educateur['description'].partition(' ! C\'est')[0] }}" />
     <meta property="og:image" content="https://i.imgur.com/ryQpV5J.jpg" />
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/educateur_page_style.css') }}"/>
@@ -66,7 +66,7 @@
                 {% endif %}
             </div>
             <div class="details-section">
-                <h2>Les points essentiels de l'éducateur canin</h2>
+                <h2>Les points essentiels de {{ educateur['name'] }}</h2>
                 <div class="details-container">
                     <div class="detail address-container">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
@@ -121,7 +121,7 @@
                         <div class="blog-details">
                             <h3 class="blog-title">{{ blog['title'] }}</h3>
                             <p class="blog-description">{{ blog['meta-description'] }}</p>
-                            <a class="blog-read-more-button" href="/blog/{{ blog['url'] }}">
+                            <a class="blog-read-more-button" href="/conseils/{{ blog['url'] }}">
                                 <span class="blog-link">Lire l'article</span>
 <!--                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>-->
                             </a>

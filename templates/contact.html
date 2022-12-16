@@ -3,16 +3,17 @@
 <head>
     {% include "head.html"%}
 
-    <title>Contact - Mon éducateur canin</title>
+    <title>Contact - Mon éducateur canin : trouver le bon éducateur pour votre chien</title>
     <meta name="description"
-          content="Mon éducateur canin, c'est le meilleur moyen pour trouver un éducateur canin. Un annuaire qui rendra votre chien ou chiot heureux.">
+          content="Vous souhaitez un renseignement sur l’éducation canine ou pour être référencé sur Mon éducateur canin ? Contactez - nous.">
     <meta name=”robots” content="index, follow">
 
     <!--    Facebook tags-->
     <meta property="og:url" content="https://www.mon-educateur-canin.com/"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="Contact - Mon Educateur Canin"/>
-    <meta property="og:description" content="Le meilleur moyen de trouver un éducateur canin partout en France"/>
+    <meta property="og:title" content="Contact - Mon éducateur canin : trouver le bon éducateur pour votre chien"/>
+    <meta property="og:description"
+          content="Vous souhaitez un renseignement sur l’éducation canine ou pour être référencé sur Mon éducateur canin ? Contactez - nous. "/>
     <meta property="og:image" content="https://i.imgur.com/ryQpV5J.jpg"/>
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/contact.css') }}"/>
@@ -25,9 +26,12 @@
         <div class="contact-form-header-container">
             <div class="contact-form-header">
                 <h1>Contact</h1>
-                <p>Vous avez une question sur comment éduquer votre chiot ou chien ? Vous êtes un éducateur et vous
-                    aimeriez être référencé sur nor plateforme ? Envoyez-nous un message et nous vous répondrons dès que
-                    possible.</p>
+                <p>
+                    Vous souhaitez en savoir plus sur comment éduquer votre chien ou votre chiot ? Vous êtes un
+                    éducateur
+                    canin et vous aimeriez être référencé au sein de Mon éducateur canin ? N’hésitez pas à nous
+                    contacter !
+                </p>
             </div>
         </div>
         <form action="/contact" method="post">
@@ -38,9 +42,9 @@
             </div>
             <div class="form-field">
                 <select name="profession" id="profession">
-                    <option>Educateur</option>
+                    <option>Éducateur canin</option>
                     <option>Particulier</option>
-                    <option>Autre</option>
+                    <option>Autre (préciser)</option>
                 </select>
                 <label for="profession">Vous êtes un:</label>
                 <span></span>

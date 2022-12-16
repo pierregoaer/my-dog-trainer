@@ -1,0 +1,70 @@
+.job-description-page-header-container {
+    background-color: var(--main-turquoise);
+}
+
+.job-description-page-header {
+    max-width: calc(var(--sections-max-width) - 300px);
+    margin: 0 auto;
+    padding: 60px var(--section-padding);
+    color: var(--off-white);
+    text-align: center;
+}
+
+.job-description-page-header h1 {
+    font-size: 3rem;
+}
+
+.job-description-page-main {
+    max-width: var(--sections-max-width);
+    margin: 0 auto;
+    padding: 60px var(--section-padding);
+}
+
+.job-description-page-main img {
+    width: 80%;
+    display: block;
+    margin: 0 auto 90px auto;
+    border-radius: 8px;
+}
+
+
+.job-description-page-main h2 {
+    color: var(--dark-turquoise);
+    font-size: 1.7rem;
+    margin-bottom: 15px;
+}
+
+.job-description-page-main p,
+.job-description-page-main li {
+    font-size: 1.2rem;
+}
+
+.job-description-page-main p {
+    margin-bottom: 20px;
+}
+
+.job-description-page-main .main-text {
+    margin-bottom: 50px;
+    color: var(--dark-grey);
+}
+
+.job-description-page-main ul {
+    width: 90%;
+    margin: 0 auto 20px auto;
+}
+
+.job-description-page-main li {
+    margin-bottom: 10px;
+}
+
+.job-description-page-main a {
+    color: var(--main-turquoise);
+}
+
+.job-description-page-main .separator {
+    width: 200px;
+    height: 1px;
+    margin: 0 auto 100px auto;
+    background-color: var(--dark-turquoise);
+    border-radius: 300px;
+}

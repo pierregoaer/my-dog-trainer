@@ -96,12 +96,17 @@ def educateur_page(educateur_id):
                            blogs=selected_articles)
 
 
-@app.route('/blog')
+@app.route('/educateur-canin')
+def educateur_job_description():
+    return render_template('educateur_job_description.html')
+
+
+@app.route('/conseils')
 def blog_page():
     return render_template('blog_page.html', blogs=blogs_database)
 
 
-@app.route('/blog/<article_url>')
+@app.route('/conseils/<article_url>')
 def blog_article(article_url):
     selected_article = {}
     for _, blog in blogs_database.items():

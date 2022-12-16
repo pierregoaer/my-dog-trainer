@@ -3,16 +3,17 @@
 <head>
     {% include "head.html"%}
 
-    <title>Blog - Mon éducateur canin</title>
+    <title>Conseils - Mon éducateur canin : trouver le bon éducateur pour votre chien</title>
     <meta name="description"
-          content="Mon éducateur canin, c'est le meilleur moyen pour trouver un éducateur canin. Un annuaire qui rendra votre chien ou chiot heureux.">
+          content="Vous chercher des conseils pour l’éducation canine ? Nous vous donnons tous nos conseils d’éducateurs canins.">
     <meta name=”robots” content="index, follow">
 
     <!--    Facebook tags-->
     <meta property="og:url" content="https://www.mon-educateur-canin.com/blog"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="Blog - Mon Educateur Canin"/>
-    <meta property="og:description" content="Le meilleur moyen de trouver un éducateur canin partout en France"/>
+    <meta property="og:title" content="Conseils - Mon éducateur canin : trouver le bon éducateur pour votre chien"/>
+    <meta property="og:description"
+          content="Vous chercher des conseils pour l’éducation canine ? Nous vous donnons tous nos conseils d’éducateurs canins."/>
     <meta property="og:image" content="https://i.imgur.com/ryQpV5J.jpg"/>
 
 
@@ -26,7 +27,7 @@
     <div class="blog-page-container">
         <div class="blog-page-header-container">
             <div class="blog-page-header">
-                <h1>Nos Conseils</h1>
+                <h1>Conseils</h1>
             </div>
         </div>
         <div class="blog-page-grid-container">
@@ -37,7 +38,7 @@
                     <div class="blog-details">
                         <h3 class="blog-title">{{ blog['title'] }}</h3>
                         <p class="blog-description">{{ blog['meta-description'] }}</p>
-                        <a class="blog-read-more-button" href="/blog/{{ blog['url'] }}">
+                        <a class="blog-read-more-button" href="/conseils/{{ blog['url'] }}">
                             <span class="blog-link">Lire l'article</span>
                             <!--                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>-->
                         </a>
