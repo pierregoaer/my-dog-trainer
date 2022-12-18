@@ -31,7 +31,8 @@
                 <a href="{{ url_for('educateurs_list') }}">Découvrir les éducateurs canins</a>
             </div>
             <div class="hero-section-image">
-                <img src="/static/assets/hero-image.png" alt="Mon éducateur canin - image principal"/>
+                <img src="{{ url_for('static',filename='assets/hero-image.png') }}"
+                     alt="Mon éducateur canin - image principal" loading="lazy"/>
             </div>
         </div>
     </div>

@@ -49,7 +49,7 @@ class App {
     }
 
     initiateMarker() {
-        const markerIconFilepath = '/static/assets/favicon.png'
+        const markerIconFilepath = '/assets/favicon.png'
         this.markerIcon = L.icon({
             iconUrl: markerIconFilepath,
             iconSize: [60, 60], // size of the icon
