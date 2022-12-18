@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 from get_database import educateurs_database, blogs_database, gsheet_file
 from datetime import datetime
 import smtplib
@@ -11,7 +11,7 @@ EMAIL_RECIPIENT_2 = f'{os.environ["EMAIL_RECIPIENT_2_1"]}.{os.environ["EMAIL_REC
 
 # print(GOOGLE_PASSWORD, EMAIL_SENDER, EMAIL_RECIPIENT_1, EMAIL_RECIPIENT_2)
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', static_url_path='')
 
 
 @app.route('/')
@@ -164,6 +164,12 @@ def contact_thank_you():
 @app.route('/mentions-légales')
 def legal_mentions():
     return render_template('legal_mentions.html')
+
+
+@app.route('/robots.txt')
+@app.route('/sitemap.xml')
+def static_from_root():
+    return send_from_directory(app.static_folder, request.path[1:])
 
 
 if __name__ == "__main__":

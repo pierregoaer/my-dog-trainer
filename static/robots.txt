@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://www.mon-educateur-canin.com/sitemap.xml
