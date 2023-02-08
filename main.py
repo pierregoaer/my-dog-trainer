@@ -173,7 +173,7 @@ def static_from_root():
 
 
 if __name__ == "__main__":
-    # app.run('0.0.0.0')
+    # app.run(host='0.0.0.0', port=80)
     app.run()
 
 # TODO: Before committing -> change google credentials, change app.run server

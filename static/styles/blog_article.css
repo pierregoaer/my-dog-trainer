@@ -27,6 +27,12 @@ article {
     border-radius: 8px;
 }
 
+.blog-body h2 {
+    font-size: 1.8rem;
+    color: var(--dark-turquoise);
+    margin: 40px 0 20px 0;
+}
+
 .blog-body p,
 .blog-body li {
     font-size: 1.2rem;
@@ -52,7 +58,8 @@ article {
     border-radius: 8px;
 }
 
-.blog-body ul {
+.blog-body ul,
+.blog-body ol {
     width: 90%;
     margin: 0 auto;
 }
