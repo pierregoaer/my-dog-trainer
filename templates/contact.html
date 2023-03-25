@@ -34,36 +34,30 @@
                 </p>
             </div>
         </div>
-        <form action="/contact" method="post">
+        <form method="POST" name="contact-form" action="{{ url_for('contact') }}" class=" needs-validation">
+            {{ form.csrf_token }}
             <div class="form-field">
-                <input type="text" name="name" id="name" placeholder="nom" required>
-                <label for="name">Nom complet</label>
-                <span></span>
-            </div>
-            <div class="form-field">
-                <select name="profession" id="profession">
-                    <option>Éducateur canin</option>
-                    <option>Particulier</option>
-                    <option>Autre (préciser)</option>
-                </select>
-                <label for="profession">Vous êtes un:</label>
-                <span></span>
+                {{ form.name(class_="form-control") }}
+                {{ form.name.label(class_="form-label") }}
             </div>
             <div class="form-field">
-                <input type="email" name="email" id="email" placeholder="email" required>
-                <label for="email">Email</label>
-                <span></span>
+                {{ form.profession(class_="form-control") }}
+                {{ form.profession.label(class_="form-label") }}
             </div>
             <div class="form-field">
-                <input type="text" name="phone" id="phone" placeholder="téléphone" required>
-                <label for="phone">Téléphone</label>
-                <span></span>
+                {{ form.email(class_="form-control") }}
+                {{ form.email.label(class_="form-label") }}
             </div>
-            <div class="form-field form-message">
-                <textarea name="message" id="message" placeholder="message" required></textarea>
-                <label for="message">Votre message</label>
+            <div class="form-field">
+                {{ form.phone(class_="form-control") }}
+                {{ form.phone.label(class_="form-label") }}
             </div>
-            <input type="submit" value="Envoyer">
+            <div class="form-field">
+                {{ form.message(class_="form-control message-field") }}
+                {{ form.message.label(class_="form-label") }}
+            </div>
+
+            {{ form.submit }}
         </form>
     </main>
     {% include "bottom_page_cta.html"%}

@@ -13,10 +13,12 @@
     text-align: center;
     margin-bottom: 20px;
 }
+
 .contact-form-header h1 {
     color: var(--off-white);
     font-size: 3rem;
 }
+
 .contact-form-header p {
     color: var(--off-white);
     font-size: 1.2rem;
@@ -55,8 +57,8 @@ form .form-field textarea::placeholder {
 }
 
 form .form-field select {
-   -webkit-appearance: none;
-   -moz-appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     background-color: white;
     font-size: 1rem;
     font-family: 'Poppins', sans-serif;
@@ -68,6 +70,7 @@ form .form-field textarea:focus,
 form .form-field select:focus {
     outline: none;
     border-color: var(--dark-turquoise);
+    box-shadow: none;
 }
 
 form .form-field label {
@@ -97,14 +100,14 @@ form .form-field select + label {
 
 form .form-field textarea:focus + label,
 form .form-field textarea:valid + label,
-form .form-field textarea:required:invalid:not(:placeholder-shown) + label{
+form .form-field textarea:required:invalid:not(:placeholder-shown) + label {
     left: -5px;
     top: -12px;
     color: var(--dark-turquoise);
     font-size: .8rem;
 }
 
-.form-message textarea{
+form #message {
     height: 150px;
 }
 
