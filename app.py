@@ -5,15 +5,15 @@ from get_database import educateurs_database, blogs_database, gsheet_file
 from forms import ContactForm
 from datetime import datetime
 
-EMAIL_RECIPIENT_1 = f'{os.environ["EMAIL_RECIPIENT_1_1"]}.{os.environ["EMAIL_RECIPIENT_1_2"]}.ad@gmail.com'
-EMAIL_RECIPIENT_2 = f'{os.environ["EMAIL_RECIPIENT_2_1"]}.{os.environ["EMAIL_RECIPIENT_2_2"]}@gmail.com'
+EMAIL_RECIPIENT_1 = os.environ["EMAIL_RECIPIENT_1"]
+EMAIL_RECIPIENT_2 = os.environ["EMAIL_RECIPIENT_2"]
 
 app = Flask(__name__, static_folder='static', static_url_path='')
-app.config['SECRET_KEY'] = os.environ.get('APPCONFIGSECRETKEY')
+app.config['SECRET_KEY'] = os.environ['APPCONFIGSECRETKEY']
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = f'{os.environ["EMAIL_SENDER_1_1"]}@gmail.com'
-app.config['MAIL_PASSWORD'] = os.environ["GOOGLE_PASSWORD"]
+app.config['MAIL_USERNAME'] = os.environ["EMAIL_SENDER"]
+app.config['MAIL_PASSWORD'] = os.environ["EMAIL_PASSWORD"]
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 
