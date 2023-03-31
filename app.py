@@ -1,9 +1,10 @@
 import os
-from flask import Flask, render_template, request, redirect, url_for, send_from_directory
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory, abort
 from flask_mail import Message, Mail
 from get_database import educateurs_database, blogs_database, gsheet_file
 from forms import ContactForm
 from datetime import datetime
+import requests
 
 EMAIL_RECIPIENT_1 = os.environ["EMAIL_RECIPIENT_1"]
 EMAIL_RECIPIENT_2 = os.environ["EMAIL_RECIPIENT_2"]
@@ -18,6 +19,11 @@ app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 
 mail = Mail(app)
+
+# Google reCaptcha
+GOOGLE_RECAPTCHA_SITE_KEY = '6LcE1kolAAAAAJATD4vuOKikf4h4Hcbna6cpLuod'
+GOOGLE_RECAPTCHA_SECRET_KEY = os.environ['GOOGLE_RECAPTCHA_SECRET_KEY']
+GOOGLE_RECAPTCHA_VERIFY_URL = 'https://www.google.com/recaptcha/api/siteverify'
 
 
 @app.route('/')
@@ -125,6 +131,12 @@ def blog_article(article_url):
 def contact():
     form = ContactForm()
     if form.validate_on_submit():
+        secret_response = request.form['g-recaptcha-response']
+        verify_response = requests.post(
+            url=f'{GOOGLE_RECAPTCHA_VERIFY_URL}?secret={GOOGLE_RECAPTCHA_SECRET_KEY}&response={secret_response}').json()
+
+        if not verify_response['success'] or verify_response['score'] < 0.5:
+            abort(401)
         today = datetime.today().strftime("%d/%m/%Y %H:%M:%S")
         name = form.name.data
         profession = form.profession.data
@@ -156,7 +168,7 @@ def contact():
         )
         mail.send(msg)
         return redirect(url_for('contact_thank_you'))
-    return render_template('contact.html', form=form)
+    return render_template('contact.html', form=form, site_key=GOOGLE_RECAPTCHA_SITE_KEY)
 
 
 @app.route('/contact/merci')

@@ -36,4 +36,4 @@ class ContactForm(FlaskForm):
         validators=[DataRequired(message="Ce champ est requis.")]
     )
 
-    submit = SubmitField("Envoyer")
+    # submit = SubmitField("Envoyer")
