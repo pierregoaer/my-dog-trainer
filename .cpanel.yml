@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/raky2214/public_html/repositories
+    - export DEPLOYPATH=/home/raky2214/repositories/mon_educateur_canin
     - /bin cp * $DEPLOYPATH
