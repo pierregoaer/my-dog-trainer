@@ -26,8 +26,7 @@ class ContactForm(FlaskForm):
     phone = StringField(
         name='telephone',
         label="Téléphone",
-        render_kw={"placeholder": "téléphone"},
-        validators=[DataRequired(message="Votre numéro est requis.")]
+        render_kw={"placeholder": "téléphone"}
     )
     message = TextAreaField(
         name='message',
@@ -35,5 +34,3 @@ class ContactForm(FlaskForm):
         render_kw={"placeholder": "votre message"},
         validators=[DataRequired(message="Ce champ est requis.")]
     )
-
-    submit = SubmitField("Envoyer")
