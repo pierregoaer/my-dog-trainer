@@ -70,7 +70,7 @@ form .form-field textarea:focus,
 form .form-field select:focus {
     outline: none;
     border-color: var(--dark-turquoise);
-    box-shadow: none;
+    box-shadow: none !important;
 }
 
 form .form-field label {

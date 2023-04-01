@@ -19,12 +19,11 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/contact.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/bottom_page_cta.css') }}"/>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+
     <script src="https://www.google.com/recaptcha/api.js"></script>
-    <script>
-        function onSubmit(token) {
-            document.getElementById("contact-form").submit();
-        }
-    </script>
+
 </head>
 <body>
 {% include "header.html"%}
@@ -42,37 +41,59 @@
             </div>
         </div>
         <form method="POST" id="contact-form" name="contact-form" action="{{ url_for('contact') }}"
-              class=" needs-validation">
+              class=" needs-validation" novalidate>
             {{ form.csrf_token }}
             <div class="form-field">
                 {{ form.name(class_="form-control") }}
                 {{ form.name.label(class_="form-label") }}
+                <div class="invalid-feedback">
+                    Ce champ est requis.
+                </div>
             </div>
             <div class="form-field">
                 {{ form.profession(class_="form-control") }}
                 {{ form.profession.label(class_="form-label") }}
+                <div class="invalid-feedback">
+                    Ce champ est requis.
+                </div>
             </div>
             <div class="form-field">
                 {{ form.email(class_="form-control") }}
                 {{ form.email.label(class_="form-label") }}
+                <div class="invalid-feedback">
+                    Ce champ est requis.
+                </div>
             </div>
             <div class="form-field">
-                {{ form.phone(class_="form-control") }}
-                {{ form.phone.label(class_="form-label") }}
+                {{ form.phone }}
+                {{ form.phone.label }}
             </div>
             <div class="form-field">
                 {{ form.message(class_="form-control message-field") }}
                 {{ form.message.label(class_="form-label") }}
+                <div class="invalid-feedback">
+                    Ce champ est requis.
+                </div>
             </div>
 
-            <button type="submit" class="g-recaptcha" data-sitekey="{{ site_key }}"
+            <button type="submit" id="submit-form-btn" class="g-recaptcha" data-sitekey="{{ site_key }}"
                     data-callback='onSubmit' data-action='submit'>Envoyer
             </button>
+            <div class="spinner-border" id="spinner" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
         </form>
     </main>
     {% include "bottom_page_cta.html"%}
     {% include "footer.html"%}
 </div>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+        crossorigin="anonymous">
+</script>
 <script src="{{url_for('static', filename='js/header.js')}}"></script>
+<script src="{{url_for('static', filename='js/contact.js')}}"></script>
+
 </body>
 </html>

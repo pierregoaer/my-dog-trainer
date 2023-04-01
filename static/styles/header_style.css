@@ -32,6 +32,7 @@
 .main-navigation p {
     font-size: 1.1rem;
     color: var(--main-turquoise);
+    margin-bottom: 0 !important;
 }
 
 @media (min-width: 1000px) {
