@@ -120,7 +120,16 @@ form #message {
     height: 150px;
 }
 
+.required-field-disclaimer {
+    margin: -10px 0 0 0;
+    color: var(--light-grey);
+    padding-left: 5px;
+    font-style: italic;
+    font-size: .7rem;
+}
+
 form button[type="submit"] {
+    margin-top: -10px;
     font-size: 1rem;
     width: 140px;
     text-align: center;

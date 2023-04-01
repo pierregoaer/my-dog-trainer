@@ -4,92 +4,112 @@
     {% include "head.html"%}
 
     <title>Les éducateurs canins - Mon éducateur canin : trouver le bon éducateur pour votre chien</title>
-    <meta name="description" content= "Trouver un éducateur canin autour de moi : c’est la devise de Mon éducateur canin. Vous allez trouver le bon éducateur canin !">
+    <meta name="description"
+          content="Trouver un éducateur canin autour de moi : c’est la devise de Mon éducateur canin. Vous allez trouver le bon éducateur canin !">
     <meta name=”robots” content="index, follow">
 
-<!--    Facebook tags-->
-    <meta property="og:url" content="https://www.mon-educateur-canin.com/educateurs" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Les éducateurs canins - Mon éducateur canin : trouver le bon éducateur pour votre chien" />
-    <meta property="og:description" content="Trouver un éducateur canin autour de moi : c’est la devise de Mon éducateur canin. Vous allez trouver le bon éducateur canin !" />
-    <meta property="og:image" content="https://i.imgur.com/ryQpV5J.jpg" />
+    <!--    Facebook tags-->
+    <meta property="og:url" content="https://www.mon-educateur-canin.com/educateurs"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title"
+          content="Les éducateurs canins - Mon éducateur canin : trouver le bon éducateur pour votre chien"/>
+    <meta property="og:description"
+          content="Trouver un éducateur canin autour de moi : c’est la devise de Mon éducateur canin. Vous allez trouver le bon éducateur canin !"/>
+    <meta property="og:image" content="https://i.imgur.com/ryQpV5J.jpg"/>
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/educateurs_list_style.css') }}"/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
-     integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
-     crossorigin=""/>
+          integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+          crossorigin=""/>
     <script defer src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
-     integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
-     crossorigin=""></script>
+            integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+            crossorigin=""></script>
 
 </head>
 <body>
-    {% include "header.html"%}
-        <div class="site-wrapper">
-        <div class="department-search-container">
-            <div class="department-search">
-                <h1>Trouver un éducateur canin proche de chez vous</h1>
-                <form action="/educateurs" method="post" class="form">
-                    <input type="text" name="department" id="department" placeholder="Rechercher par département" size="20" required>
-                    <input type="submit" value="Rechercher"/>
-                </form>
-                {% if is_filtered %}
-                    <a href="{{ url_for('educateurs_list') }}" class="see-all-departments-button">
-                        <p>Voir tous les éducateurs</p>
-                    </a>
-                {% endif %}
-<!--                <div class="display-map-button">Cacher la carte</div>-->
-                <div class="search-around-me-button">Chercher autour de moi</div>
-            </div>
+{% include "header.html"%}
+<div class="site-wrapper">
+    <div class="department-search-container">
+        <div class="department-search">
+            {% if not is_filtered %}
+            <h1>Trouver un éducateur canin proche de chez vous</h1>
+            {% endif %}
+            {% if is_filtered %}
+            <h1>Trouver un éducateur canin dans le {{ department }}</h1>
+            {% endif %}
+            <form action="{{ url_for('educateurs_list') }}" method="get" class="form">
+                <input type="text" name="department" id="department" placeholder="Rechercher par département" size="20"
+                       required>
+                <input type="submit" value="Rechercher"/>
+            </form>
+            {% if is_filtered %}
+            <a href="{{ url_for('educateurs_list') }}" class="see-all-departments-button">
+                <p>Voir tous les éducateurs</p>
+            </a>
+            {% endif %}
+            <!--                <div class="display-map-button">Cacher la carte</div>-->
+            <div class="search-around-me-button">Chercher autour de moi</div>
         </div>
-        <div class="map-container">
-<!--            <button class="change-map-size">Agrandir la carte</button>-->
-            <div id="map"></div>
-        </div>
-        <div class="educateurs-container">
-            <div class="educateurs-grid" >
-                {% for id, educateur in first_results.items() %}
-                    <div class="educateur" data-id="{{ id }}">
-                        <div class="educateur-bio">
-                            <img src="{{ educateur['image'] }}" loading="lazy" alt="Logo - {{ educateur['name'] }}">
-                            <p class="educateur-name">{{ educateur['name'] }}</p>
-                        </div>
-                        <div class="educateur-details">
-                            <p class="educateur-address">📍{{ educateur['address'] }}</p>
-                            <div class="educateur-review">{{ educateur['googleReviews']|safe}}</div>
-                            <div class="educateur-buttons">
-                                <a class="educateur-button educateur-page" href="{{url_for('educateur_page', educateur_id=id) }}">En savoir plus</a>
-                                <a class="educateur-button educateur-website" href="{{ educateur['website'] }}" target="_blank">Voir le site</a>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-                {% for id, educateur in remaining_results.items() %}
-                    <div class="educateur hidden" data-id="{{ id }}">
-                        <div class="educateur-bio">
-                            <img src="{{ educateur['image'] }}" loading="lazy" alt="{{ educateur['name'] }}">
-                            <p class="educateur-name">{{ educateur['name'] }}</p>
-                        </div>
-                        <div class="educateur-details">
-                            <p class="educateur-address">📍{{ educateur['address'] }}</p>
-                            <div class="educateur-review">{{ educateur['googleReviews']|safe}}</div>
-                            <div class="educateur-buttons">
-                                <a class="educateur-button educateur-page" href="{{url_for('educateur_page', educateur_id=id) }}">En savoir plus</a>
-                                <a class="educateur-button educateur-website" href="{{ educateur['website'] }}" target="_blank">Voir le site</a>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-            <button class="see-all-educateurs">Voir tous les éducateurs canins</button>
-        {% include "footer.html"%}
     </div>
+    {% if database %}
+    <div class="map-container">
+        <!--            <button class="change-map-size">Agrandir la carte</button>-->
+        <div id="map"></div>
+    </div>
+    <div class="educateurs-container">
+
+        <div class="educateurs-grid">
+            {% for id, educateur in first_results.items() %}
+            <div class="educateur" data-id="{{ id }}">
+                <div class="educateur-bio">
+                    <img src="{{ educateur['image'] }}" loading="lazy" alt="Logo - {{ educateur['name'] }}">
+                    <p class="educateur-name">{{ educateur['name'] }}</p>
+                </div>
+                <div class="educateur-details">
+                    <p class="educateur-address">📍{{ educateur['address'] }}</p>
+                    <div class="educateur-review">{{ educateur['googleReviews']|safe}}</div>
+                    <div class="educateur-buttons">
+                        <a class="educateur-button educateur-page"
+                           href="{{url_for('educateur_page', educateur_id=id) }}">En savoir plus</a>
+                        <a class="educateur-button educateur-website" href="{{ educateur['website'] }}" target="_blank">Voir
+                            le site</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% for id, educateur in remaining_results.items() %}
+            <div class="educateur hidden" data-id="{{ id }}">
+                <div class="educateur-bio">
+                    <img src="{{ educateur['image'] }}" loading="lazy" alt="{{ educateur['name'] }}">
+                    <p class="educateur-name">{{ educateur['name'] }}</p>
+                </div>
+                <div class="educateur-details">
+                    <p class="educateur-address">📍{{ educateur['address'] }}</p>
+                    <div class="educateur-review">{{ educateur['googleReviews']|safe}}</div>
+                    <div class="educateur-buttons">
+                        <a class="educateur-button educateur-page"
+                           href="{{url_for('educateur_page', educateur_id=id) }}">En savoir plus</a>
+                        <a class="educateur-button educateur-website" href="{{ educateur['website'] }}" target="_blank">Voir
+                            le site</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <button class="see-all-educateurs">Voir tous les éducateurs canins</button>
+    {% endif %}
+
+    {% if not database %}
+            <h2 class="no-trainer-found">Nous n'avons malheureusement pas d'éducateur canin dans le {{ department }}.</h2>
+        {% endif %}
+    {% include "footer.html"%}
+</div>
 </body>
 
 <script type="text/javascript">
     const database = {{ database | tojson }};
-    const isFiltered = {{ is_filtered | tojson }};
+    const isFiltered = {{  is_filtered | tojson }};
 </script>
 <script defer src="{{url_for('static', filename='js/script_educateurs_list.js')}}"></script>
 <script src="{{url_for('static', filename='js/header.js')}}"></script>

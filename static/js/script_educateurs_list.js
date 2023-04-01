@@ -37,7 +37,7 @@ class App {
     }
 
     getZoomLevel() {
-        this.isFiltered ? this.zoomLevel = 7 : this.zoomLevel = 6;
+        this.isFiltered ? this.zoomLevel = 9 : this.zoomLevel = 6;
     }
 
     loadMap() {

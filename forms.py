@@ -7,7 +7,7 @@ from wtforms.widgets import EmailInput
 class ContactForm(FlaskForm):
     name = StringField(
         name='nom-complet',
-        label='Nom Complet',
+        label='Nom complet *',
         render_kw={"placeholder": "nom complet"},
         validators=[DataRequired(message="Votre nom est requis.")]
     )
@@ -18,7 +18,7 @@ class ContactForm(FlaskForm):
     )
     email = StringField(
         name='email',
-        label="Email",
+        label="Email *",
         render_kw={"placeholder": "email"},
         widget=EmailInput(),
         validators=[DataRequired(message="Votre email est requis."), Email()]
@@ -30,7 +30,7 @@ class ContactForm(FlaskForm):
     )
     message = TextAreaField(
         name='message',
-        label="Votre message",
+        label="Votre message *",
         render_kw={"placeholder": "votre message"},
         validators=[DataRequired(message="Ce champ est requis.")]
     )

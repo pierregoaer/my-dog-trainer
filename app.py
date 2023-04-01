@@ -33,7 +33,16 @@ def home():
 
 @app.route('/educateurs', methods=["POST", "GET"])
 def educateurs_list():
-    if request.method == "GET":
+    department_search = False
+    department_str = request.args.get('department')
+    if department_str:
+        try:
+            int(department_str)
+            department_search = True
+        except ValueError:
+            department_search = False
+
+    if not department_search:
         number_of_results = 18
         counter = 0
         first_results = {}
@@ -49,24 +58,18 @@ def educateurs_list():
                                first_results=first_results,
                                remaining_results=remaining_results,
                                is_filtered=False)
-    if request.method == "POST":
-        department = request.form["department"]
-        return redirect(url_for('department_search', department=department))
-
-
-@app.route('/educateurs/departement/<int:department>', methods=["POST", "GET"])
-def department_search(department):
-    is_filtered = True
-    filtered_database = {}
-    for id, educateur in educateurs_database.items():
-        if educateur["department"] == department:
-            filtered_database[id] = educateur
-    return render_template('educateurs_list.html',
-                           database=filtered_database,
-                           first_results=filtered_database,
-                           remaining_results={},
-                           department=department,
-                           is_filtered=True)
+    else:
+        department = int(department_str)
+        filtered_database = {}
+        for id, educateur in educateurs_database.items():
+            if educateur["department"] == int(department):
+                filtered_database[id] = educateur
+        return render_template('educateurs_list.html',
+                               database=filtered_database,
+                               first_results=filtered_database,
+                               remaining_results={},
+                               department=department,
+                               is_filtered=True)
 
 
 @app.route('/educateurs/region/<region>', methods=["POST", "GET"])
