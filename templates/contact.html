@@ -44,32 +44,32 @@
               class=" needs-validation" novalidate>
             {{ form.csrf_token }}
             <div class="form-field">
-                {{ form.name(class_="form-control") }}
+                {{ form.name(class_="form-control required-field") }}
                 {{ form.name.label(class_="form-label") }}
                 <div class="invalid-feedback">
                     Ce champ est requis.
                 </div>
             </div>
             <div class="form-field">
-                {{ form.profession(class_="form-control") }}
+                {{ form.profession(class_="form-control required-field") }}
                 {{ form.profession.label(class_="form-label") }}
                 <div class="invalid-feedback">
                     Ce champ est requis.
                 </div>
             </div>
             <div class="form-field">
-                {{ form.email(class_="form-control") }}
+                {{ form.email(class_="form-control required-field") }}
                 {{ form.email.label(class_="form-label") }}
                 <div class="invalid-feedback">
                     Ce champ est requis.
                 </div>
             </div>
             <div class="form-field">
-                {{ form.phone }}
+                {{ form.phone(class_="not-required-field")}}
                 {{ form.phone.label }}
             </div>
             <div class="form-field">
-                {{ form.message(class_="form-control message-field") }}
+                {{ form.message(class_="form-control message-field required-field") }}
                 {{ form.message.label(class_="form-label") }}
                 <div class="invalid-feedback">
                     Ce champ est requis.

@@ -88,10 +88,19 @@ form .form-field label:hover {
     cursor: text;
 }
 
-form .form-field input:focus + label,
-form .form-field input:valid + label,
-form .form-field input:required:invalid:not(:placeholder-shown) + label,
+form .form-field .required-field:focus + label,
+form .form-field .required-field:valid + label,
+form .form-field .required-field:required:invalid:not(:placeholder-shown) + label,
 form .form-field select + label {
+    left: -5px;
+    top: -12px;
+    color: var(--dark-turquoise);
+    font-size: .8rem;
+}
+
+/*specific for phone number not required*/
+form .form-field .not-required-field:focus + label,
+form .form-field input:not(:placeholder-shown) + label {
     left: -5px;
     top: -12px;
     color: var(--dark-turquoise);
